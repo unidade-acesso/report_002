@@ -1,11 +1,12 @@
 name: Clonar estrutura de projeto
 
 on:
-  workflow_dispatch:  # Isso permite executar manualmente o workflow
+  workflow_dispatch:
 
 jobs:
   clonar-template:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout do código
         uses: actions/checkout@v3
@@ -22,32 +23,5 @@ jobs:
         run: node scripts/copiarProjetoTemplate.js
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-          REPO_OWNER: ${{ github.repository_owner }}
-          REPO_NAME: ${{ github.event.repository.name }}
-
-name: Clonar estrutura de projeto
-
-on:
-  workflow_dispatch:
-
-jobs:
-  clonar-projeto:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Instalar Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Instalar dependências
-        run: npm install axios
-
-      - name: Rodar script de clonagem
-        run: node scripts/copiarProjetoTemplate.js
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           REPO_OWNER: ${{ github.repository_owner }}
           REPO_NAME: ${{ github.event.repository.name }}
