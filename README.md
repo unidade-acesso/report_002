@@ -1,3 +1,3 @@
-# soure comercial
+# SOURE comercial
 - URL: https://www.sourecomercial.pt/
-- Owner: soure
+- Owner: Soure
