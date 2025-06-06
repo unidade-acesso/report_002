@@ -1,3 +1,3 @@
-# SOURE comercial
-- URL: https://www.sourecomercial.pt/
-- Owner: Soure
+# Câmara Municipal do Barreiro
+- URL: https://www.cm-barreiro.pt
+- Owner: CM Barreiro
