@@ -1,3 +1,4 @@
 # Câmara Municipal do Barreiro
 - URL: https://www.cm-barreiro.pt
-- Owner: CM Barreiro
+- Proprietário: CM Barreiro
+- Candidatura a: Selo Brouze
