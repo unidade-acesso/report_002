@@ -3,4 +3,6 @@
 - Proprietário: CM Barreiro
 - Candidatura a: Selo Bronze
 
-[Abrir guia de utilização do relatório de auditoria](https://unidade-acesso.github.io/report_002/guia-utilizacao-relatorio-auditoria.html)
+## Recursos de apoio:
+- Guia de utilização do relatório [Abrir o guia aqui](https://unidade-acesso.github.io/report_002/guia-utilizacao-relatorio-auditoria.html)
+- Video tutrial
