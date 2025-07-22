@@ -7,5 +7,4 @@
 
 ### Recursos de apoio:
 - [Abrir o guia de utilização do relatório das auditorias](https://unidade-acesso.github.io/reports/guia-utilizacao-relatorio-auditoria.html)
-
 - [Video tutorial explicativo do relatório das auditorias](https://unidade-acesso.github.io/reports/guia-utilizacao-relatorio-auditoria.html)
