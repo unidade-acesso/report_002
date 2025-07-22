@@ -3,4 +3,4 @@
 - Proprietário: CM Barreiro
 - Candidatura a: Selo Bronze
 
-[Abrir guia de utilização do relatório de auditoria](https://joaosilva.github.io/auditoria/guia-relatorio.html)
+[Abrir guia de utilização do relatório de auditoria](https://unidade-acesso.github.io/auditoria/guia-relatorio.html)
