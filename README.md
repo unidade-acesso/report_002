@@ -7,5 +7,5 @@
 - [Abrir o relatorio](https://unidade-acesso.github.io/report_002/report_002.html)
 
 ## Apoio:
-- [Abrir o guia aqui](https://unidade-acesso.github.io/report_002/guia-utilizacao-relatorio-auditoria.html)
-- Video tutrial
+- [Abrir o guia de utilização do relatório das auditorias](https://unidade-acesso.github.io/report_002/guia-utilizacao-relatorio-auditoria.html)
+- [Video tutorial explicativo do relatório das auditorias](https://unidade-acesso.github.io/report_002/guia-utilizacao-relatorio-auditoria.html)
