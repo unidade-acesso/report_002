@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Guia passo a passo para consulta de relatório de auditoria e uso da plataforma GitHub, acessível segundo as WCAG.">
+  <title>Guia de Acesso ao Relatório de Auditoria</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      margin: 0;
+      color: #000;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    nav ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    nav ul li {
+      margin: 0.5em 0;
+    }
+    a {
+      color: #0055aa;
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+      outline: 2px solid #000;
+      outline-offset: 2px;
+    }
+    section {
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 id="topo">Guia de utilização do Relatório de Auditoria</h1>
+    </header>
+
+    <nav aria-label="Índice de conteúdos">
+      <h2>Índice</h2>
+      <ul>
+        <li><a href="#passo1">Passo 1: Aceder ao Relatório</a></li>
+        <li><a href="#passo2">Passo 2: Utilizar o Índice de Conteúdos</a></li>
+        <li><a href="#passo3">Passo 3: Analisar a Visão Geral</a></li>
+        <li><a href="#passo4">Passo 4: Explorar a Análise Detalhada</a></li>
+        <li><a href="#passo5">Passo 5: Interpretar os Estados de Conformidade</a></li>
+        <li><a href="#passo6">Passo 6: Consultar as Evidências no GitHub</a></li>
+        <li><a href="#passo7">Passo 7: Criar Conta no GitHub</a></li>
+        <li><a href="#passo8">Passo 8: Interagir com os Requisitos</a></li>
+        <li><a href="#passo9">Passo 9: Acompanhamento pela Equipa de Auditoria</a></li>
+        <li><a href="#passo10">Passo 10: Iniciar as Correções</a></li>
+        <li><a href="#final">Final</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="passo1">
+        <h2>Passo 1: Aceder ao Relatório</h2>
+        <p>A <strong>equipa de auditores</strong> irá enviar-lhe, por email, o <strong>link de acesso ao repositório da auditoria</strong>.</p>
+        <p>No topo da página encontrará:</p>
+        <ul>
+          <li>Nome do site ou aplicação móvel</li>
+          <li>URL</li>
+          <li>Nome do proprietário</li>
+          <li>Tipo de selo a que se está a candidatar</li>
+          <li><strong>Link de acesso direto ao relatório</strong></li>
+          <li><strong>Recursos de apoio ao relatório</strong> (ex: guias explicativos ou documentação complementar, em caso de dúvidas)</li>
+        </ul>
+      </section>
+
+      <section id="passo2">
+        <h2>Passo 2: Utilizar o Índice de Conteúdos</h2>
+        <p>Ao clicar no <strong>link de acesso</strong>, será direcionado para o relatório online.</p>
+        <p>Já dentro do relatório, encontrará um <strong>índice de conteúdos</strong> no início da página que lhe permite navegar rapidamente entre as secções através de atalhos diretos.</p>
+      </section>
+
+      <section id="passo3">
+        <h2>Passo 3: Analisar a Visão Geral</h2>
+        <p>Consulte a <strong>visão geral</strong> do relatório, que inclui:</p>
+        <ul>
+          <li>Estado por tipo de avaliação</li>
+          <li>Níveis de conformidade por checklist</li>
+        </ul>
+      </section>
+
+      <section id="passo4">
+        <h2>Passo 4: Explorar a Análise Detalhada</h2>
+        <p>A análise do relatório está organizada em diferentes tipos de avaliação para facilitar a compreensão:</p>
+        <ul>
+          <li><strong>Avaliação Automática</strong> – realizada com ferramentas automáticas de verificação</li>
+          <li><strong>Avaliação Manual</strong> – conduzida por especialistas, dividida em 3 checklists:
+            <ul>
+              <li>10 Aspetos</li>
+              <li>Conteúdo</li>
+              <li>Transação</li>
+            </ul>
+          </li>
+          <li><strong>Outras Violações</strong> – casos adicionais que não se enquadram nos critérios anteriores, mas que devem ser considerados</li>
+        </ul>
+      </section>
+
+      <section id="passo5">
+        <h2>Passo 5: Interpretar os Estados de Conformidade</h2>
+        <p>Cada requisito possui etiquetas que indicam o seu estado:</p>
+        <ul>
+          <li><strong>OK</strong> – Conforme</li>
+          <li><strong>NOK</strong> – Não conforme</li>
+          <li><strong>N/A</strong> – Não aplicável</li>
+        </ul>
+      </section>
+
+      <section id="passo6">
+        <h2>Passo 6: Consultar as Evidências no GitHub</h2>
+        <p>Use os botões <strong>"Ver detalhes no GitHub"</strong> para aceder às evidências da auditoria.</p>
+        <p>No GitHub encontrará:</p>
+        <ul>
+          <li>Título do erro</li>
+          <li>Descrição e provas da análise</li>
+          <li>Sugestões de correção</li>
+        </ul>
+      </section>
+
+      <section id="passo7">
+        <h2>Passo 7: Criar Conta no GitHub</h2>
+        <p>Para poder comentar e interagir nas evidências da auditoria, é necessário ter uma conta no GitHub.</p>
+        <p>Siga estes passos para criar a sua conta:</p>
+        <ul>
+          <li>Aceda a <a href="https://github.com/" target="_blank">github.com</a></li>
+          <li>Clique em <strong>"Sign Up"</strong> no canto superior direito</li>
+          <li>Preencha o formulário com email, nome de utilizador e palavra‑passe</li>
+          <li>Siga os passos de verificação (pode incluir validação por email)</li>
+          <li>Após criar a conta, inicie sessão e participe nas discussões</li>
+        </ul>
+      </section>
+
+      <section id="passo8">
+        <h2>Passo 8: Interagir com os Requisitos</h2>
+        <p>Com a sua conta GitHub ativa, pode:</p>
+        <ul>
+          <li>Colocar dúvidas</li>
+          <li>Dar feedback sobre as correções</li>
+          <li>Carregar ficheiros como suporte das alterações</li>
+        </ul>
+      </section>
+
+      <section id="passo9">
+        <h2>Passo 9: Acompanhamento pela Equipa de Auditoria</h2>
+        <p>Um auditor acompanhará cada requisito, colaborando consigo para validar e esclarecer dúvidas.</p>
+      </section>
+
+      <section id="passo10">
+        <h2>Passo 10: Iniciar as Correções</h2>
+        <p>Com base nas informações apresentadas no relatório e nas evidências disponíveis no GitHub, inicie o processo de correção dos requisitos não conformes.</p>
+        <p>À medida que for implementando as correções:</p>
+        <ul>
+          <li>Adicione comentários na secção correspondente do GitHub</li>
+          <li>Descreva as alterações feitas e, sempre que possível, anexe <strong>evidências</strong> (ex: capturas de ecrã, links atualizados, ficheiros modificados)</li>
+        </ul>
+        <p>Os auditores irão acompanhar o progresso, validar as correções efetuadas e reavaliar os requisitos com base na nova informação fornecida.</p>
+      </section>
+
+      <section id="final">
+        <h2>Final</h2>
+        <p>Agora que conhece todas as funcionalidades do relatório e da plataforma GitHub, está pronto para avançar.</p>
+        <p><strong>Mãos à obra!</strong> Qualquer dúvida, interaja via GitHub.</p>
+        <p><strong>Bom trabalho!</strong></p>
+        <p><a href="#topo">Voltar ao topo</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+
