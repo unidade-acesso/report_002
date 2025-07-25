@@ -6,4 +6,4 @@
 ## [Relatório da Auditoria da CM Barreiro](https://unidade-acesso.github.io/report_002/reporte_report_002.html)
 
 ### Recursos de apoio ao relatório:
-- [Guia de utilização do relatório das auditorias]([https://github.com/unidade-acesso/reports/blob/main/guia-utilizacao-relatorio-auditorias.html](https://github.com/unidade-acesso/reports/blob/main/guia-utilizacao-relatorio-auditorias.html))
+- ([https://github.com/unidade-acesso/reports/blob/main/guia-utilizacao-relatorio-auditorias.html](https://github.com/unidade-acesso/reports/blob/main/guia-utilizacao-relatorio-auditorias.html))
