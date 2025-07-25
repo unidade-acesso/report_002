@@ -7,19 +7,17 @@
   <title>Guia de Acesso ao Relatório de Auditoria</title>
   <style>
     body {
-      background-color: #f2f2f2;
+      background-color: #ffffff;
       font-family: Arial, sans-serif;
       line-height: 1.6;
       padding: 2rem 1rem;
       margin: 0;
+      color: #000;
     }
     .container {
       max-width: 900px;
-      background-color: #ffffff;
       margin: 0 auto;
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     h1, h2 {
       color: #003366;
@@ -38,6 +36,7 @@
     a:hover, a:focus {
       text-decoration: underline;
       outline: 2px solid #000;
+      outline-offset: 2px;
     }
     section {
       margin-top: 2em;
@@ -70,19 +69,22 @@
     <main>
       <section id="passo1">
         <h2>Passo 1: Aceder ao Relatório</h2>
-        <p>A <strong>equipa de auditores</strong> irá enviar-lhe, por email, o <strong>link de acesso ao relatório da auditoria</strong>.</p>
+        <p>A <strong>equipa de auditores</strong> irá enviar-lhe, por email, o <strong>link de acesso ao repositório da auditoria</strong>.</p>
         <p>No topo da página encontrará:</p>
         <ul>
           <li>Nome do site ou aplicação móvel</li>
           <li>URL</li>
           <li>Nome do proprietário</li>
           <li>Tipo de selo a que se está a candidatar</li>
+          <li><strong>Link de acesso direto ao relatório</strong></li>
+          <li><strong>Recursos de apoio ao relatório</strong> (ex: guias explicativos ou documentação complementar, em caso de dúvidas)</li>
         </ul>
       </section>
 
       <section id="passo2">
         <h2>Passo 2: Utilizar o Índice de Conteúdos</h2>
-        <p>Utilize o <strong>índice de conteúdos</strong> disponível no início do relatório para navegar rapidamente entre secções através de atalhos diretos.</p>
+        <p>Ao clicar no <strong>link de acesso</strong>, será direcionado para o relatório online.</p>
+        <p>Já dentro do relatório, encontrará um <strong>índice de conteúdos</strong> no início da página que lhe permite navegar rapidamente entre as secções através de atalhos diretos.</p>
       </section>
 
       <section id="passo3">
@@ -96,11 +98,17 @@
 
       <section id="passo4">
         <h2>Passo 4: Explorar a Análise Detalhada</h2>
-        <p>A análise completa está dividida em:</p>
+        <p>A análise do relatório está organizada em diferentes tipos de avaliação para facilitar a compreensão:</p>
         <ul>
-          <li>Avaliação Manual</li>
-          <li>Checklists: 10 Aspetos, Conteúdo e Transação</li>
-          <li>Outras Violações</li>
+          <li><strong>Avaliação Automática</strong> – realizada com ferramentas automáticas de verificação</li>
+          <li><strong>Avaliação Manual</strong> – conduzida por especialistas, dividida em 3 checklists:
+            <ul>
+              <li>10 Aspetos</li>
+              <li>Conteúdo</li>
+              <li>Transação</li>
+            </ul>
+          </li>
+          <li><strong>Outras Violações</strong> – casos adicionais que não se enquadram nos critérios anteriores, mas que devem ser considerados</li>
         </ul>
       </section>
 
@@ -117,7 +125,7 @@
       <section id="passo6">
         <h2>Passo 6: Consultar as Evidências no GitHub</h2>
         <p>Use os botões <strong>"Ver detalhes no GitHub"</strong> para aceder às evidências da auditoria.</p>
-        <p>No GitHub, encontrará:</p>
+        <p>No GitHub encontrará:</p>
         <ul>
           <li>Título do erro</li>
           <li>Descrição e provas da análise</li>
@@ -127,27 +135,41 @@
 
       <section id="passo7">
         <h2>Passo 7: Criar Conta no GitHub</h2>
-        <p>Para comentar e interagir, deverá criar uma conta gratuita clicando em <strong>"Sign Up"</strong>.</p>
+        <p>Para poder comentar e interagir nas evidências da auditoria, é necessário ter uma conta no GitHub.</p>
+        <p>Siga estes passos para criar a sua conta:</p>
+        <ul>
+          <li>Aceda a <a href="https://github.com/" target="_blank">github.com</a></li>
+          <li>Clique em <strong>"Sign Up"</strong> no canto superior direito</li>
+          <li>Preencha o formulário com email, nome de utilizador e palavra‑passe</li>
+          <li>Siga os passos de verificação (pode incluir validação por email)</li>
+          <li>Após criar a conta, inicie sessão e participe nas discussões</li>
+        </ul>
       </section>
 
       <section id="passo8">
         <h2>Passo 8: Interagir com os Requisitos</h2>
-        <p>Com a conta criada, pode:</p>
+        <p>Com a sua conta GitHub ativa, pode:</p>
         <ul>
           <li>Colocar dúvidas</li>
-          <li>Dar feedback das correções</li>
-          <li>Carregar ficheiros como prova de alterações</li>
+          <li>Dar feedback sobre as correções</li>
+          <li>Carregar ficheiros como suporte das alterações</li>
         </ul>
       </section>
 
       <section id="passo9">
         <h2>Passo 9: Acompanhamento pela Equipa de Auditoria</h2>
-        <p>Um auditor acompanhará cada requisito e colaborará consigo na validação e esclarecimento de dúvidas.</p>
+        <p>Um auditor acompanhará cada requisito, colaborando consigo para validar e esclarecer dúvidas.</p>
       </section>
 
       <section id="passo10">
         <h2>Passo 10: Iniciar as Correções</h2>
-        <p>Com base nas informações e evidências, inicie as correções necessárias em cada requisito.</p>
+        <p>Com base nas informações apresentadas no relatório e nas evidências disponíveis no GitHub, inicie o processo de correção dos requisitos não conformes.</p>
+        <p>À medida que for implementando as correções:</p>
+        <ul>
+          <li>Adicione comentários na secção correspondente do GitHub</li>
+          <li>Descreva as alterações feitas e, sempre que possível, anexe <strong>evidências</strong> (ex: capturas de ecrã, links atualizados, ficheiros modificados)</li>
+        </ul>
+        <p>Os auditores irão acompanhar o progresso, validar as correções efetuadas e reavaliar os requisitos com base na nova informação fornecida.</p>
       </section>
 
       <section id="final">
