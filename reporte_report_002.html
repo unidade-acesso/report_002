@@ -17,7 +17,7 @@
       color: #ffffff; 
       background-color: #0E8A16; 
       padding: 0.25rem 0.5rem; 
-      border-radius: 0.375rem;
+      border-radius: 50px;
       font-weight: 500;
       display: inline-block;
     }
@@ -25,7 +25,7 @@
       color: #ffffff; 
       background-color: #B60205; 
       padding: 0.25rem 0.5rem; 
-      border-radius: 0.375rem;
+      border-radius: 50px;
       font-weight: 500;
       display: inline-block;
     }
@@ -33,19 +33,34 @@
       color: #856404; 
       background-color: #fff3cd; 
       padding: 0.25rem 0.5rem; 
-      border-radius: 0.375rem;
+      border-radius: 50px;
       font-weight: 500;
       display: inline-block;
     }
-    .status-na { 
-      color: #495057; 
-      background-color: #e9ecef; 
+        .status-na {
+      color: #000;
+      background-color: #C2E0C6; 
       padding: 0.25rem 0.5rem; 
-      border-radius: 0.375rem;
+      border-radius: 50px;
       font-weight: 500;
       display: inline-block;
     }
-    .requirement-title { margin-top: 2rem; }
+    .requirement-title { 
+      margin-top: 2rem; 
+    }
+    .requirement-title h4,
+    .requirement-title h3 {
+      color: #000;
+    }
+    .mb-4 ul li a {
+      color: #1e3a8a;
+      text-decoration: none;
+    }
+    .mb-4 ul li a:hover {
+      color: #1e40af;
+      text-decoration: underline;
+    }
+
     .evidence-list { 
       list-style-type: disc; 
       padding-left: 1.5rem; 
@@ -53,8 +68,23 @@
     }
     .evidence-item { 
       margin: 0.5rem 0; 
-      padding: 0.5rem; 
+      padding: 0.5rem 0.5rem 0.5rem 1.5rem; 
       border-radius: 4px;
+      background-color: #f6f6f6;
+      color: #000;
+      margin-left: -1.5rem;
+      list-style-position: inside;
+    }
+    
+    .evidence-item .github-link {
+      margin: 1.5rem 0 1rem 0;
+      border-color: #1e3a8a;
+      color: #1e3a8a;
+    }
+    .evidence-item .github-link:hover {
+      background-color: #1e3a8a;
+      color: #ffffff;
+      border-color: #1e3a8a;
     }
     .evidence-labels {
       font-size: 0.85em;
@@ -95,21 +125,21 @@
       display: inline-block;
       margin-top: 0.75rem;
       padding: 0.375rem 0.75rem;
-      border: 1px solid #6f42c1;
+      border: 1px solid #1e3a8a;
       border-radius: 0.375rem;
-      color: #6f42c1;
+      color: #1e3a8a;
       text-decoration: none;
       font-size: 0.875rem;
       font-weight: 500;
       transition: all 0.15s ease-in-out;
     }
     .github-link:hover {
-      background-color: #6f42c1;
+      background-color: #1e3a8a;
       color: #ffffff;
       text-decoration: none;
     }
     #checklist-10-aspetos {
-      margin-top: 1.5rem;
+      margin-top: 3.5rem !important;
     }
     .report-section {
       border-bottom: 3px solid #000000;
@@ -149,15 +179,15 @@
 
     <section class="mb-4">
       <ul>
-        <li>Julho de 2025 / Câmara Municipal do Barreiro</li>
+        <li>Data: Julho de 2025</li>
         <li>Proprietário: CM Barreiro</li>
-        <li>https://www.cm-barreiro.pt</li>
+        <li>URL: <a href="https://www.cm-barreiro.pt" target="_blank" rel="noopener noreferrer">https://www.cm-barreiro.pt</a></li>
         <li>Candidatura a: Selo Bronze</li>
       </ul>
     </section>
 
     <nav class="mb-4 report-section">
-      <h2>Índice:</h2>
+      <h2>Índice</h2>
       <ul>
         <li><a href="#introducao">Introdução</a></li>
         
@@ -181,15 +211,17 @@
           </ul>
         </li>
         <li><a href="#outras-violacoes">Outras violações</a></li>
+        <li><a href="#etiquetas">Significado das etiquetas utilizadas</a></li>
       </ul>
     </nav>
 
     <section id="introducao" class="mb-5 report-section">
       <h2>Introdução</h2>
-      <p>O <strong><a href="https://www.cm-barreiro.pt" target="_blank">https://www.cm-barreiro.pt</a></strong> <span class="status-nok">não passa (*)</span> os requisitos mínimos do Selo de Usabilidade e Acessibilidade.</p>
+      <p>O website <a href="https://www.cm-barreiro.pt" target="_blank">https://www.cm-barreiro.pt</a> <strong><span class="status-nok">não passa</span></strong> nos requisitos mínimos do Selo de Usabilidade e Acessibilidade.</p>
       
-      <h3>Estado por tipo de avaliação efetuada</h3>
+      <h3>Estado das avaliações efetuadas</h3>
       <table class="table table-bordered">
+        <caption class="sr-only">Estado das avaliações efetuadas</caption>
         <thead>
           <tr>
             <th>Tipo de avaliação</th>
@@ -199,7 +231,7 @@
         <tbody>
           <tr>
             <td>Avaliação Automática</td>
-            <td><span class="status-na">NA</span></td>
+            <td><span class="status-na">N/A</span></td>
           </tr>
           <tr>
             <td>Avaliação Manual</td>
@@ -213,6 +245,7 @@
 
       <h3>Níveis de conformidade das avaliações periciais efetuadas</h3>
       <table class="table table-bordered">
+        <caption class="sr-only">Níveis de conformidade das avaliações periciais efetuadas</caption>
         <thead>
           <tr>
             <th>Checklist</th>
@@ -247,7 +280,7 @@
     
 
     
-    <section id="avaliacao-manual" class="mb-5 avaliacao-manual-section">
+    <section id="avaliacao-manual" class="mb-5 mt-5 avaliacao-manual-section">
       <h2>Avaliação manual</h2>
       <p><span class="status-nok">NOK</span></p>
       <p>A avaliação manual é feita por inspeção perícial dos diversos requisitos constantes da:</p>
@@ -269,7 +302,7 @@
           <li>Requisitos avaliados: 27 (1 N/A excluído, 26 aplicáveis)</li>
           <li>Requisitos OK: 9</li>
           <li>Requisitos NOK: 17</li>
-          <li>Requisitos NA: 1</li>
+          <li>Requisitos N/A: 1</li>
         </ul>
       </li>
     </ul>
@@ -286,7 +319,7 @@
           R 1.1 - 10 Aspetos - Há opções do menu que não estão estruturadas como lista (elementos "ul" e "li")<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 1.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/1" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/1" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-1.2">
@@ -300,28 +333,28 @@
           R 1.2 - 10 Aspetos - Impossibilidade de aceder à página destino dos links de itens de menu que contenham subopções<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 1.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/4" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/4" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           R 1.2 - 10 Aspetos - Teclas de navegação não correspondem ao mapa mental estabelecido<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 1.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/2" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/2" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-1.3">
         <h4>Requisito 1.3 - As imagens-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto</h4>
       </div>
       <div class="requirement-content">
-        <p><span class="status-na">NA</span></p>
+        <p><span class="status-na">N/A</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
           R 1.3 - 10 Aspetos - O requisito foi avaliado como “Sim”, mas é “Não Aplicável”<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-na">N/A</span><span class="label-tag label-requisito">R 1.3</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/15" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/15" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-2.1">
@@ -335,7 +368,7 @@
           R 2.1 - 10 Aspetos - Ok<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 2.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/16" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/16" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-2.2">
@@ -349,35 +382,35 @@
           R 2.2 - 10 Aspetos - Existem cabeçalhos mal atribuídos<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/19" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/19" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           R 2.2 - 10 Aspetos - Existe salto na hierarquia de cabeçalhos<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/18" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/18" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           R 2.2 - 10 Aspetos - Existem cabeçalhos em branco<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/17" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/17" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           R 2.2 - 10 Aspetos - Existem títulos que não estão estruturados como cabeçalhos<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/5" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/5" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           R 2.2 - 10 Aspetos - Texto de cabeçalho incorretamente definido<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/3" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/3" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-3.1">
@@ -391,7 +424,7 @@
           R 3.1 - 10 Aspetos - Ok<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 3.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/20" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/20" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-3.2">
@@ -405,7 +438,7 @@
           R 3.2 - 10 Aspetos - Ok<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 3.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/21" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/21" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-4.1">
@@ -419,21 +452,21 @@
           R 4.1 - 10 Aspetos - Existem campos sem etiqueta<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 4.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/22" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/22" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           R 4.1 - 10 Aspetos - Atributos de campos de formulário de uso dispensável<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-melhoria">melhoria</span><span class="label-tag label-requisito">R 4.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/11" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/11" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           R 4.1 - 10 Aspetos - Campos sem etiquetas<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 4.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/10" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/10" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-4.2">
@@ -447,7 +480,7 @@
           R 4.2 - 10 Aspetos - Existe um campo que não está estruturado como obrigatório<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 4.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/23" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/23" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-4.3">
@@ -461,7 +494,7 @@
           R 4.3 - 10 Aspetos - Ok<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 4.3</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/27" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/27" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-5.1">
@@ -475,7 +508,7 @@
           R 5.1 - 10 Aspetos - Imagens com descrição textual incorreta<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 5.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/6" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/6" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-5.2">
@@ -489,7 +522,7 @@
           R 5.2 - 10 Aspetos - Existe um infográfico sem descrição do conteúdo<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 5.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/25" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/25" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-5.3">
@@ -503,7 +536,7 @@
           R 5.3 - 10 Aspetos - Imagens link sem texto alternativo<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 5.3</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/26" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/26" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-6.1">
@@ -517,14 +550,14 @@
           R 6.1 - 10 Aspetos - Existem textos com contraste abaixo do recomendado no estado hover<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 6.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/29" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/29" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           R 6.1 - 10 Aspetos - O texto não tem contraste suficiente<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 6.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/28" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/28" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-6.2">
@@ -538,7 +571,7 @@
           R 6.2 - 10 Aspetos - OK<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 6.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/40" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/40" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-7.1">
@@ -552,7 +585,7 @@
           R 7.1 - 10 Aspetos - Ok<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 7.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/30" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/30" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-7.2">
@@ -566,7 +599,7 @@
           R 7.2 - 10 Aspetos - vídeos com mensagens eminentemente visuais sem audiodescrição ou transcrição descritiva<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 7.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/8" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/8" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-8.1">
@@ -580,7 +613,7 @@
           R 8.1 - 10 Aspetos - Ok<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 8.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/31" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/31" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-8.2">
@@ -594,14 +627,14 @@
           R 8.2 - 10 Aspetos- Existem conteúdos que estão visíveis apenas para tecnologias de apoio<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 8.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/32" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/32" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           R 8.2 - 10 Aspetos - Existem conteúdos que estão visíveis apenas para tecnologias de apoio<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 8.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/9" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/9" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-8.3">
@@ -615,21 +648,21 @@
           R 8.3 - 10 Aspetos - As legendas estão sendo utilizadas de forma inapropriada<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 8.3</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/44" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/44" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           R 8.3 - 10 Aspetos - Uso de listas de forma inapropriada<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 8.3</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/33" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/33" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           R 8.3 - 10 Aspetos - Acordeons implementados com atributos inadequados<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 8.3</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/14" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/14" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-8.4">
@@ -643,7 +676,7 @@
           R 8.4 - 10 Aspetos - Ok<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 8.4</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/34" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/34" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-8.5">
@@ -657,7 +690,7 @@
           R 8.5 - 10 Aspetos - Ok<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 8.5</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/35" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/35" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-9.1">
@@ -671,7 +704,7 @@
           R 9.1 - 10 Aspetos - O foco não é direcionado para dentro da modal<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 9.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/36" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/36" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-9.2">
@@ -685,7 +718,7 @@
           R 9.2 - 10 Aspetos - O foco não está limitado à modal do player de vídeo<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 9.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/37" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/37" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-9.3">
@@ -699,7 +732,7 @@
           R 9.3 - 10 Aspetos - Botões de fecho das modais não estão acessíveis com leitor de ecrã e teclado<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 9.3</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/38" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/38" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-9.4">
@@ -713,7 +746,7 @@
           R 9.4 - 10 Aspetos - O foco é perdido quando a janela modal é fechada<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 9.4</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/39" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/39" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-10.1">
@@ -727,7 +760,7 @@
           R 10.1 - 10 Aspetos - Não é possível extrair o texto de ficheiros PDF para outro processador de texto<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 10.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/13" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/13" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       </div>
@@ -761,7 +794,7 @@
           R 1.1 - Conteúdo - Resumo do propósito do site na homepage não visível em todas as resoluções, sem fazer scroll<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 1.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/45" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/45" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-1.2">
@@ -775,7 +808,7 @@
           R 1.2 - Conteúdo - Inexistência de termos complexos<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 1.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/46" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/46" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-1.3">
@@ -789,7 +822,7 @@
           R 1.3 - Conteúdo - Ok<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 1.3</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/47" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/47" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-1.4">
@@ -803,7 +836,7 @@
           R 1.4 - Conteúdo - Ok<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 1.4</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/48" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/48" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-2.1">
@@ -817,7 +850,7 @@
           R 2.1 - Conteúdo - O corpo de texto tem um tamanho inferior ao recomendado (16 pixeis)<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/49" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/49" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-2.2">
@@ -831,7 +864,7 @@
           R 2.2 - Conteúdo - Existem conteúdos secundários com tamanho de fonte abaixo do recomendado<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/50" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/50" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-2.3">
@@ -845,7 +878,7 @@
           R 2.3 - Conteúdo - Existem blocos de texto com mais de 100 caracteres por linha<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.3</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/51" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/51" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-2.4">
@@ -859,7 +892,7 @@
           R 2.4 - Conteúdo - OK<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 2.4</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/52" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/52" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-3.1">
@@ -873,7 +906,7 @@
           R 3.1 - Conteúdo - Ok<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 3.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/53" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/53" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-3.2">
@@ -887,7 +920,7 @@
           R 3.2 - Conteúdo - OK<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 3.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/55" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/55" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-3.3">
@@ -901,7 +934,7 @@
           R 3.3 - Conteúdo - OK<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 3.3</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/57" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/57" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-4.1">
@@ -915,7 +948,7 @@
           R 4.1 - Conteúdo - Não existe um índice no topo de páginas longas<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 4.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/58" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/58" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-4.2">
@@ -929,7 +962,7 @@
           R 4.2 - Conteúdo - OK<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 4.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/59" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/59" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-5.1">
@@ -943,7 +976,7 @@
           R 5.1 - Conteúdo - OK<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 5.1</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/60" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/60" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-5.2">
@@ -957,7 +990,7 @@
           R 5.2 - Conteúdo - Existem elementos interativos com tamanho abaixo do recomendado (44 x 44 pixels)<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 5.2</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/64" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/64" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-5.3">
@@ -971,7 +1004,7 @@
           R 5.3 - Conteúdo - OK<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 5.3</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/62" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/62" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       <div class="requirement-title" id="req-r-5.4">
@@ -985,7 +1018,7 @@
           R 5.4 - Conteúdo - OK<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 5.4</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/63" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/63" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
       </div>
@@ -998,40 +1031,48 @@
       <h2>Outras violações</h2>
       
       <div class="requirement-title" id="req-outras-violações">
-        <h4>Outras violações</h4>
+        <h3>Outras violações</h3>
       </div>
       <div class="requirement-content">
         <p><span class="status-nok">NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
+          Avaliação automática Rocket Validator<br>
+          <span class="sr-only">etiqueta:</span>
+          <div class="evidence-labels"><span class="label-tag label-auto">av auto</span><span class="label-tag label-nok">NOK</span></div><br>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/65" target="_blank">Ver detalhes no GitHub</a>
+        </li>
+      
+        <li class="evidence-item">
           Outras violações - Existem duas navegações com a mesma informação<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-outras">outras violações</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/54" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/54" target="_blank">Ver detalhes no GitHub</a>
         </li>
       
         <li class="evidence-item">
           Idioma dos elementos interativos dos carrosséis diferente do idioma do site<br>
           <span class="sr-only">etiqueta:</span>
           <div class="evidence-labels"><span class="label-tag label-outras">outras violações</span></div><br>
-          <a href="https://github.com/unidade-acesso/report_002/issues/41" target="_blank" class="github-link">Ver detalhes no GitHub</a>
+          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/41" target="_blank">Ver detalhes no GitHub</a>
         </li>
       </ul></div>
     </section>
 
-    <section class="mb-5 report-section">
+    <section id="etiquetas" class="mb-5 report-section">
       <h2>Significado das etiquetas utilizadas</h2>
       <ul>
         <li><span class="label-tag label-ok">OK</span> - status OK</li>
         <li><span class="label-tag label-melhoria">melhoria</span> - status OK, mas pode melhorar</li>
         <li><span class="label-tag label-nok">NOK</span> - status Not OK</li>
         <li><span class="label-tag label-na">N/A</span> - status Não Aplicável</li>
-        <li><span class="label-tag label-checklist">chk10 web</span> - checklist 10 Aspetos críticos de acessibilidade funcional</li>
+        <li><span class="label-tag label-requisito">R 1.1</span> - identificação de requisito específico</li>
+        <li><span class="label-tag label-checklist">chk 10 web</span> - checklist 10 Aspetos críticos de acessibilidade funcional</li>
         <li><span class="label-tag label-checklist">chk conteúdo</span> - checklist Conteúdo</li>
         
         <li><span class="label-tag label-declaracao">dec a11y</span> - permite construir o capítulo "Declaração de acessibilidade e usabilidade"</li>
-        <li><span class="label-tag label-auto">automatic</span> - permite construir o capítulo "Avaliação automática"</li>
+        <li><span class="label-tag label-auto">automática</span> - permite construir o capítulo "Avaliação automática"</li>
         <li><span class="label-tag label-outras">outras violações</span> - permite construir o capítulo "Outras violações"</li>
       </ul>
     </section>
