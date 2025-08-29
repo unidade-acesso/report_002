@@ -85,6 +85,32 @@
       text-decoration: underline;
     }
 
+    /* Índice (summary) com maior destaque visual e acessível */
+    summary.index-summary {
+      display: list-item; /* manter marcador nativo */
+      font-weight: 700;
+      font-size: 1.25rem !important; /* aumentar o texto */
+      color: #000;
+      padding-left: 0; /* sem recuo extra */
+      border-left: none; /* sem borda lateral */
+      border-radius: 0;
+      cursor: pointer;
+    }
+    summary.index-summary:hover {
+      background-color: transparent; /* sem fundo ao hover */
+    }
+    summary.index-summary:focus {
+      outline: 3px solid #333399;
+      outline-offset: 2px;
+    }
+    /* Aumentar o tamanho da seta nativa (compatibilidade ampla) */
+    summary.index-summary::marker {
+      font-size: 1em;
+    }
+    summary.index-summary::-webkit-details-marker {
+      font-size: 1em;
+    }
+
     .evidence-list { 
       list-style-type: disc; 
       padding-left: 1.5rem; 
@@ -98,18 +124,15 @@
       color: #000;
       margin-left: -1.5rem;
       list-style-position: inside;
+      list-style: none;
     }
     
-    .evidence-item .github-link {
+    
+    .evidence-item p {
       margin: 1.5rem 0 1rem 0;
-      border-color: #1e3a8a;
-      color: #1e3a8a;
     }
-    .evidence-item .github-link:hover {
-      background-color: #1e3a8a;
-      color: #ffffff;
-      border-color: #1e3a8a;
-    }
+    
+
     .evidence-labels {
       font-size: 0.85em;
       display: inline-flex;
@@ -145,23 +168,7 @@
       white-space: nowrap;
       border: 0;
     }
-    .github-link {
-      display: inline-block;
-      margin-top: 0.75rem;
-      padding: 0.375rem 0.75rem;
-      border: 1px solid #1e3a8a;
-      border-radius: 0.375rem;
-      color: #1e3a8a;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      transition: all 0.15s ease-in-out;
-    }
-    .github-link:hover {
-      background-color: #1e3a8a;
-      color: #ffffff;
-      text-decoration: none;
-    }
+
     #checklist-10-aspetos {
       margin-top: 3.5rem !important;
     }
@@ -193,60 +200,71 @@
     #avaliacao-manual {
       border-bottom: 1px solid #000000 !important;
     }
+    /* Tabelas: caption por cima */
+    table.table caption {
+      caption-side: top;
+      text-align: left;
+      padding-bottom: 0.5rem;
+      font-weight: 600;
+      color: #000;
+    }
   </style>
 </head>
 <body>
   <a href="#conteudo-principal" class="skip-link visually-hidden-focusable">Saltar para o conteúdo principal</a>
-  <div class="container mt-4" id="conteudo-principal" role="main">
+  <div class="container mt-4" id="conteudo-principal">
     <header class="mb-4">
       <h1>Relatório Avaliação da Candidatura da Câmara Municipal do Barreiro</h1>
     </header>
 
     <section class="mb-4">
       <ul>
-        <li>Data: Agosto de 2025</li>
+        <li>Consulte aqui: Relatório de Auditoria candidatura a Selo Bronze de CM Barreiro.</li>
+        <li>Avaliação feita por: AMA. I.P. - Núcleo de Experiência e Usabilidade</li>
+        <li>Data: Agosto 2025</li>
         <li>Proprietário: CM Barreiro</li>
-        <li>URL: <a href="[www.cm-barreiro.pt](https://www.cm-barreiro.pt)" target="_blank" rel="noopener noreferrer">[www.cm-barreiro.pt](https://www.cm-barreiro.pt)</a></li>
+        <li>URL: <a href="https://www.cm-barreiro.pt" target="_blank" rel="noopener noreferrer">https://www.cm-barreiro.pt</a></li>
         <li>Candidatura a: Selo Bronze</li>
       </ul>
     </section>
 
-    <nav class="mb-4 report-section">
-      <h2>Índice</h2>
-      <ul>
-        <li><a href="#introducao">Introdução</a></li>
-        <li><a href="#declaracao">Declaração de Acessibilidade</a></li>
-        <li><a href="#avaliacao-automatica">Avaliação automática</a></li>
-        
-        <li><a href="#avaliacao-manual">Avaliação manual</a>
-          <ul class="indent-list">
-            
-            <li><a href="#checklist-10-aspetos">Checklist 10 aspetos</a>
-              <ul class="indent-list">
-                <li><a href="#req-chk10-r-1.1">Requisito 1.1 - O menu de navegação deve estar estruturado como uma lista de opções</a></li><li><a href="#req-chk10-r-1.2">Requisito 1.2 - É possível selecionar as opções e as subopções do menu quer com rato quer com teclado</a></li><li><a href="#req-chk10-r-1.3">Requisito 1.3 - As imagens-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto</a></li><li><a href="#req-chk10-r-2.1">Requisito 2.1 - Existe um título &lt;h1&gt; marcado na página</a></li><li><a href="#req-chk10-r-2.2">Requisito 2.2 - Existe uma marcação hierarquizada de títulos e subtítulos na página (&lt;h1&gt;...&lt;h6&gt;)</a></li><li><a href="#req-chk10-r-3.1">Requisito 3.1 - As células que constituem os cabeçalhos da tabela estão marcadas com o elemento &lt;th&gt;</a></li><li><a href="#req-chk10-r-3.2">Requisito 3.2 - A legenda da tabela está marcada com o elemento &lt;caption&gt;</a></li><li><a href="#req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</a></li><li><a href="#req-chk10-r-4.2">Requisito 4.2 - É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã</a></li><li><a href="#req-chk10-r-4.3">Requisito 4.3 - É possível localizar e ler as mensagens de erro usando apenas um leitor de ecrã</a></li><li><a href="#req-chk10-r-5.1">Requisito 5.1 - A imagem ou gráfico tem um equivalente alternativo em texto curto e correto</a></li><li><a href="#req-chk10-r-5.2">Requisito 5.2 - O gráfico é acompanhado de uma descrição longa</a></li><li><a href="#req-chk10-r-5.3">Requisito 5.3 - As imagens-link têm um equivalente alternativo correto</a></li><li><a href="#req-chk10-r-6.1">Requisito 6.1 - No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1</a></li><li><a href="#req-chk10-r-6.2">Requisito 6.2 - O rácio de contraste entre a cor do texto de tamanho grande (maior ou igual que 18 pontos ou maior ou igual que 14 pontos negrito) e a cor do fundo é superior a 3:1</a></li><li><a href="#req-chk10-r-7.1">Requisito 7.1 - Deve ser possível ativar os botões de controlo do leitor quer com o rato quer com o teclado</a></li><li><a href="#req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</a></li><li><a href="#req-chk10-r-8.1">Requisito 8.1 - Quando se retira a CSS, todos os elementos HTML devem alinhar à esquerda</a></li><li><a href="#req-chk10-r-8.2">Requisito 8.2 - Quando se retira a CSS, a informação aparece numa ordem lógica</a></li><li><a href="#req-chk10-r-8.3">Requisito 8.3 - Quando se retira a CSS, deve ser possível reconhecer a semântica dos diversos elementos</a></li><li><a href="#req-chk10-r-8.4">Requisito 8.4 - Quando se retira a CSS, a informação relevante permanece visível</a></li><li><a href="#req-chk10-r-8.5">Requisito 8.5 - A maquetização da página é feita sem recorrer ao elemento &lt;table&gt;</a></li><li><a href="#req-chk10-r-9.1">Requisito 9.1 - Quando a caixa de diálogo é aberta, o foco (cursor do Browser) move-se para um elemento dentro da caixa de diálogo</a></li><li><a href="#req-chk10-r-9.2">Requisito 9.2 - Quando uma caixa de diálogo está aberta, a navegação com teclado (Browser ou Tecnologia de apoio) tem de ficar circunscrita aos elementos que compõem a caixa de diálogo</a></li><li><a href="#req-chk10-r-9.3">Requisito 9.3 - A caixa de diálogo tem de ter um mecanismo que permita sair ou fechar a caixa, quer através de teclado quer através de um dispositivo apontador</a></li><li><a href="#req-chk10-r-9.4">Requisito 9.4 - Quando a caixa de diálogo fecha, o foco (cursor do Browser) deve voltar ao elemento interativo que a invocou</a></li><li><a href="#req-chk10-r-10.1">Requisito 10.1 - Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT</a></li>
-              </ul>
-            </li>
-            
-            <li><a href="#checklist-conteudo">Checklist Conteúdo</a>
-              <ul class="indent-list">
-                <li><a href="#req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</a></li><li><a href="#req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</a></li><li><a href="#req-conteudo-r-1.3">Requisito 1.3 - Cada bloco de conteúdo contém a sua data de atualização</a></li><li><a href="#req-conteudo-r-1.4">Requisito 1.4 - A informação sobre a entidade responsável pelo conteúdo está em todas as páginas</a></li><li><a href="#req-conteudo-r-2.1">Requisito 2.1 - O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos</a></li><li><a href="#req-conteudo-r-2.2">Requisito 2.2 - A informação secundária (datas, autores) utiliza, no mínimo, um tamanho de letra de 10 pontos</a></li><li><a href="#req-conteudo-r-2.3">Requisito 2.3 - Blocos e linhas de texto com largura não superior a 100 caracteres</a></li><li><a href="#req-conteudo-r-2.4">Requisito 2.4 - O espaçamento entre linhas não é inferior a 1.5x o tamanho da letra</a></li><li><a href="#req-conteudo-r-3.1">Requisito 3.1 - Nenhum nível de navegação tem mais de 9 opções</a></li><li><a href="#req-conteudo-r-3.2">Requisito 3.2 - A navegação principal está sempre visível e sempre no mesmo local</a></li><li><a href="#req-conteudo-r-3.3">Requisito 3.3 - As hiperligações de texto não devem ser diferenciadas apenas com base na cor</a></li><li><a href="#req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</a></li><li><a href="#req-conteudo-r-4.2">Requisito 4.2 - O layout do sítio Web é adaptável a plataformas móveis sem necessidade de efetuar varrimento horizontal</a></li><li><a href="#req-conteudo-r-5.1">Requisito 5.1 - Não existem elementos interativos acionados apenas com a passagem do rato (hover)</a></li><li><a href="#req-conteudo-r-5.2">Requisito 5.2 - Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos) (vertical e horizontal)</a></li><li><a href="#req-conteudo-r-5.3">Requisito 5.3 - Há apenas um botão de ação principal por página e o mesmo encontra-se destacado</a></li><li><a href="#req-conteudo-r-5.4">Requisito 5.4 - Elementos gráficos interativos têm de aparentar ser clicáveis</a></li>
-              </ul>
-            </li>
-            
-          </ul>
-        </li>
-        <li><a href="#outras-violacoes">Outras violações</a></li>
-        <li><a href="#etiquetas">Significado das etiquetas utilizadas</a></li>
-      </ul>
+    <nav class="mb-4 report-section" aria-label="Índice">
+      <details open>
+        <summary class="index-summary">Índice</summary>
+        <ul>
+          <li><a href="#introducao">Introdução</a></li>
+          
+          <li><a href="#avaliacao-automatica">Avaliação automática</a></li>
+          
+          <li><a href="#avaliacao-manual">Avaliação manual</a>
+            <ul class="indent-list">
+              
+              <li><a href="#checklist-10-aspetos">Checklist 10 aspetos</a>
+                <ul class="indent-list">
+                  <li><a href="#req-chk10-r-1.1">Requisito 1.1 - O menu de navegação deve estar estruturado como uma lista de opções</a></li><li><a href="#req-chk10-r-1.2">Requisito 1.2 - É possível selecionar as opções e as subopções do menu quer com rato quer com teclado</a></li><li><a href="#req-chk10-r-1.3">Requisito 1.3 - As imagens-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto</a></li><li><a href="#req-chk10-r-2.2">Requisito 2.2 - Existe uma marcação hierarquizada de títulos e subtítulos na página (&lt;h1&gt;...&lt;h6&gt;)</a></li><li><a href="#req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</a></li><li><a href="#req-chk10-r-4.2">Requisito 4.2 - É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã</a></li><li><a href="#req-chk10-r-5.3">Requisito 5.3 - As imagens-link têm um equivalente alternativo correto</a></li><li><a href="#req-chk10-r-6.1">Requisito 6.1 - No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1</a></li><li><a href="#req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</a></li><li><a href="#req-chk10-r-8.2">Requisito 8.2 - Quando se retira a CSS, a informação aparece numa ordem lógica</a></li><li><a href="#req-chk10-r-8.3">Requisito 8.3 - Quando se retira a CSS, deve ser possível reconhecer a semântica dos diversos elementos</a></li><li><a href="#req-chk10-r-9.1">Requisito 9.1 - Quando a caixa de diálogo é aberta, o foco (cursor do Browser) move-se para um elemento dentro da caixa de diálogo</a></li><li><a href="#req-chk10-r-9.2">Requisito 9.2 - Quando uma caixa de diálogo está aberta, a navegação com teclado (Browser ou Tecnologia de apoio) tem de ficar circunscrita aos elementos que compõem a caixa de diálogo</a></li><li><a href="#req-chk10-r-9.3">Requisito 9.3 - A caixa de diálogo tem de ter um mecanismo que permita sair ou fechar a caixa, quer através de teclado quer através de um dispositivo apontador</a></li><li><a href="#req-chk10-r-9.4">Requisito 9.4 - Quando a caixa de diálogo fecha, o foco (cursor do Browser) deve voltar ao elemento interativo que a invocou</a></li><li><a href="#req-chk10-r-10.1">Requisito 10.1 - Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT</a></li>
+                </ul>
+              </li>
+              
+              <li><a href="#checklist-conteudo">Checklist Conteúdo</a>
+                <ul class="indent-list">
+                  <li><a href="#req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</a></li><li><a href="#req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</a></li><li><a href="#req-conteudo-r-2.1">Requisito 2.1 - O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos</a></li><li><a href="#req-conteudo-r-2.2">Requisito 2.2 - A informação secundária (datas, autores) utiliza, no mínimo, um tamanho de letra de 10 pontos</a></li><li><a href="#req-conteudo-r-2.3">Requisito 2.3 - Blocos e linhas de texto com largura não superior a 100 caracteres</a></li><li><a href="#req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</a></li><li><a href="#req-conteudo-r-5.2">Requisito 5.2 - Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos) (vertical e horizontal)</a></li>
+                </ul>
+              </li>
+              
+            </ul>
+          </li>
+          <li><a href="#outras-violacoes">Outras violações</a></li>
+          <li><a href="#etiquetas">Significado das etiquetas utilizadas</a></li>
+        </ul>
+      </details>
     </nav>
 
-    <section id="introducao" class="mb-5 report-section">
-      <h2>Introdução</h2>
-      <p>O website <a href="[www.cm-barreiro.pt](https://www.cm-barreiro.pt)" target="_blank">[www.cm-barreiro.pt](https://www.cm-barreiro.pt)</a> <strong><span class="status-nok">não passa</span></strong> nos requisitos mínimos do Selo de Usabilidade e Acessibilidade.</p>
+         <section id="introducao" class="mb-5 report-section">
+       <h2 id="req-introducao">Introdução</h2>
+      <p>O website <a href="https://www.cm-barreiro.pt" target="_blank">https://www.cm-barreiro.pt</a> <strong><span class="status-nok"><span class="sr-only">etiqueta: </span>não passa</span></strong> nos requisitos mínimos do Selo de Usabilidade e Acessibilidade.</p>
       
-      <h3>Estado das avaliações efetuadas</h3>
       <table class="table table-bordered">
-        <caption class="sr-only">Estado das avaliações efetuadas</caption>
+        <caption>Estado das avaliações efetuadas</caption>
         <thead>
           <tr>
             <th>Tipo de avaliação</th>
@@ -256,21 +274,19 @@
         <tbody>
           <tr>
             <td>Avaliação Automática</td>
-            <td><span class="status-nok">NOK</span></td>
+            <td><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></td>
           </tr>
           <tr>
             <td>Avaliação Manual</td>
-            <td><span class="status-nok">NOK</span></td>
+            <td><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></td>
           </tr>
         </tbody>
       </table>
 
       
       <p>Das avaliações manuais efetuadas obtiveram-se os resultados que se sintetizam na tabela seguinte.</p>
-
-      <h3>Níveis de conformidade das avaliações manuais</h3>
       <table class="table table-bordered">
-        <caption class="sr-only">Níveis de conformidade das avaliações manuais</caption>
+        <caption>Níveis de conformidade das avaliações manuais</caption>
         <thead>
           <tr>
             <th>Checklist</th>
@@ -279,18 +295,16 @@
           </tr>
         </thead>
         <tbody>
-
-          
           <tr>
             <td>10 aspetos</td>
-            <td>34.6% (9/26)</td>
-            <td><span class="status-nok">não passa</span></td>
+            <td>0.0% (0/15)</td>
+            <td><span class="status-nok"><span class="sr-only">etiqueta: </span>Não passa</span></td>
           </tr>
           
           <tr>
             <td>Conteúdo</td>
-            <td>58.8% (10/17)</td>
-            <td><span class="status-nok">não passa</span></td>
+            <td>0.0% (0/7)</td>
+            <td><span class="status-nok"><span class="sr-only">etiqueta: </span>Não passa</span></td>
           </tr>
           
         </tbody>
@@ -301,493 +315,312 @@
       
     </section>
 
-    
-    <section id="declaracao" class="mb-5 report-section">
-      <h3>Declaração de Acessibilidade</h3>
-      <p><span class="status-ok">OK</span></p>
-      
-      <h4 class="requirement-title" id="req-declaracao-declaração-de-acessibilidade">Declaração de Acessibilidade</h4>
-      <div class="requirement-content">
-        
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          Declaração de acessibilidade<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-ok">OK</span><span class="label-tag label-declaracao">dec a11y</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/71" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-    </section>
+              
 
-    
-    <section id="avaliacao-automatica" class="mb-5 report-section">
-      <h3>Avaliação automática</h3>
-      <p><span class="status-nok">NOK</span></p>
-      
+              
+     <section id="avaliacao-automatica" class="mb-5 report-section">
+       <h2 id="req-automatic-avaliacao-automatica">Avaliação automática</h2>
+       <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+       
     <p><strong>Ferramentas utilizadas:</strong></p>
     <ul>
       <li>AccessMonitor</li>
       <li>RocketValidator</li>
     </ul>
     
-      
-      <h4 class="requirement-title" id="req-automatic-avaliação-automática">Avaliação automática</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          Avaliação automática - Access Monitor - Páginas que não ultrapassam o score de 9 pontos<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-auto">av auto</span><span class="label-tag label-nok">NOK</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/67" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      
-        <li class="evidence-item">
-          Avaliação automática - Access Monitor / Observatório<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-auto">av auto</span><span class="label-tag label-nok">NOK</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/66" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      
-        <li class="evidence-item">
-          Avaliação automática - Rocket Validator<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-auto">av auto</span><span class="label-tag label-nok">NOK</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/65" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-    </section>
+       <p>Lista de evidências recolhidas:</p>
+       <ul class="evidence-list">
+         
+             <li class="evidence-item">
+               <p><span class="visually-hidden">evidência: </span><strong>Páginas que não ultrapassam o score de 9 pontos</strong></p>
+               <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
+               <p><a href="https://github.com/unidade-acesso/report_002/issues/67" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Páginas que não ultrapassam o score de 9 pontos</span> (abre no GitHub)</a></p>
+             </li>
+           
+             <li class="evidence-item">
+               <p><span class="visually-hidden">evidência: </span><strong>Avaliação automática - Access Monitor / Observatório</strong></p>
+               <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
+               <p><a href="https://github.com/unidade-acesso/report_002/issues/66" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Avaliação automática - Access Monitor / Observatório</span> (abre no GitHub)</a></p>
+             </li>
+           
+             <li class="evidence-item">
+               <p><span class="visually-hidden">evidência: </span><strong>Avaliação automática - Rocket Validator</strong></p>
+               <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
+               <p><a href="https://github.com/unidade-acesso/report_002/issues/65" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Avaliação automática - Rocket Validator</span> (abre no GitHub)</a></p>
+             </li>
+           
+       </ul>
+     </section>
 
-    
-    <section id="avaliacao-manual" class="mb-5 mt-5 avaliacao-manual-section">
-      <h2>Avaliação manual</h2>
-      <p><span class="status-nok">NOK</span></p>
-      <p>A avaliação manual é feita por inspeção perícial dos diversos requisitos constantes da:</p>
-      <ul>
-        <li>checklist <strong>10 aspetos críticos de acessibilidade funcional</strong>;</li>
-        <li>checklist <strong>Conteúdo</strong> (se candidato a Selo Bronze);</li>
-        
-      </ul>
+         
+     <section id="avaliacao-manual" class="mb-5 mt-5 avaliacao-manual-section">
+       <h2 id="req-avaliacao-manual">Avaliação manual</h2>
+       <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+       <p>A avaliação manual é feita por inspeção perícial dos diversos requisitos constantes da:</p>
+       <ul>
+         <li>checklist <strong>10 aspetos críticos de acessibilidade funcional</strong>;</li>
+         <li>checklist <strong>Conteúdo</strong> (se candidato a Selo Bronze);</li>
+         
+       </ul>
 
       
       <div class="checklist-section">
         <h3 id="checklist-10-aspetos">Checklist 10 aspetos</h3>
-        <p><span class="status-nok">NOK</span></p>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         
     <p><strong>Nível de conformidade:</strong></p>
     <ul>
-      <li><strong>Checklist 10 aspetos</strong>: 34.6% (9/26)
+      <li><strong>Checklist 10 aspetos</strong>: 0.0% (0/15)
         <ul>
-          <li>Requisitos avaliados: 27 (1 N/A excluído, 26 aplicáveis)</li>
-          <li>Requisitos OK: 9</li>
-          <li>Requisitos NOK: 17</li>
+          <li>Requisitos avaliados: 16 (1 N/A excluído, 15 aplicáveis)</li>
+          
+          <li>Requisitos NOK: 15</li>
           <li>Requisitos N/A: 1</li>
         </ul>
       </li>
     </ul>
   
         
-      <h4 class="requirement-title" id="req-chk10-r-1.1">Requisito 1.1 - O menu de navegação deve estar estruturado como uma lista de opções</h4>
+        <h4 class="requirement-title" id="req-chk10-r-1.1">Requisito 1.1 - O menu de navegação deve estar estruturado como uma lista de opções</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 1.1 - 10 Aspetos - Há opções do menu que não estão estruturadas como lista (elementos "ul" e "li")<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 1.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/1" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Há opções do menu que não estão estruturadas como lista (elementos "ul" e "li")</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/1" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Há opções do menu que não estão estruturadas como lista (elementos "ul" e "li")</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-1.2">Requisito 1.2 - É possível selecionar as opções e as subopções do menu quer com rato quer com teclado</h4>
+        <h4 class="requirement-title" id="req-chk10-r-1.2">Requisito 1.2 - É possível selecionar as opções e as subopções do menu quer com rato quer com teclado</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 1.2 - 10 Aspetos - Impossibilidade de aceder à página destino dos links de itens de menu que contenham subopções<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 1.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/4" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Impossibilidade de aceder à página destino dos links de itens de menu que contenham subopções</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/4" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Impossibilidade de aceder à página destino dos links de itens de menu que contenham subopções</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          R 1.2 - 10 Aspetos - Teclas de navegação não correspondem ao mapa mental estabelecido<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 1.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/2" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Teclas de navegação não correspondem ao mapa mental estabelecido</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/2" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Teclas de navegação não correspondem ao mapa mental estabelecido</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-1.3">Requisito 1.3 - As imagens-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto</h4>
+        <h4 class="requirement-title" id="req-chk10-r-1.3">Requisito 1.3 - As imagens-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto</h4>
       <div class="requirement-content">
-        <p><span class="status-na">N/A</span></p>
+                                   <p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 1.3 - 10 Aspetos - O requisito foi avaliado como “Sim”, mas é “Não Aplicável”<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-na">N/A</span><span class="label-tag label-requisito">R 1.3</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/15" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>O requisito foi avaliado como “Sim”, mas é “Não Aplicável”</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.3</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/15" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">O requisito foi avaliado como “Sim”, mas é “Não Aplicável”</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-2.1">Requisito 2.1 - Existe um título &lt;h1&gt; marcado na página</h4>
+        <h4 class="requirement-title" id="req-chk10-r-2.2">Requisito 2.2 - Existe uma marcação hierarquizada de títulos e subtítulos na página (&lt;h1&gt;...&lt;h6&gt;)</h4>
       <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 2.1 - 10 Aspetos - Ok<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 2.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/16" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-2.2">Requisito 2.2 - Existe uma marcação hierarquizada de títulos e subtítulos na página (&lt;h1&gt;...&lt;h6&gt;)</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 2.2 - 10 Aspetos - Existem cabeçalhos mal atribuídos<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/19" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Existem cabeçalhos mal atribuídos</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/19" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Existem cabeçalhos mal atribuídos</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          R 2.2 - 10 Aspetos - Existe salto na hierarquia de cabeçalhos<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/18" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Existe salto na hierarquia de cabeçalhos</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/18" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Existe salto na hierarquia de cabeçalhos</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          R 2.2 - 10 Aspetos - Existem cabeçalhos em branco<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/17" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Existem cabeçalhos em branco</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/17" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Existem cabeçalhos em branco</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          R 2.2 - 10 Aspetos - Existem títulos que não estão estruturados como cabeçalhos<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/5" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Existem títulos que não estão estruturados como cabeçalhos</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/5" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Existem títulos que não estão estruturados como cabeçalhos</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          R 2.2 - 10 Aspetos - Texto de cabeçalho incorretamente definido<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/3" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Texto de cabeçalho incorretamente definido</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/3" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Texto de cabeçalho incorretamente definido</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-3.1">Requisito 3.1 - As células que constituem os cabeçalhos da tabela estão marcadas com o elemento &lt;th&gt;</h4>
+        <h4 class="requirement-title" id="req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</h4>
       <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 3.1 - 10 Aspetos - Ok<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 3.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/20" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-3.2">Requisito 3.2 - A legenda da tabela está marcada com o elemento &lt;caption&gt;</h4>
-      <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 3.2 - 10 Aspetos - Ok<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 3.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/21" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 4.1 - 10 Aspetos - Existem campos sem etiqueta<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 4.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/22" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Existem campos sem etiqueta</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/22" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Existem campos sem etiqueta</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          R 4.1 - 10 Aspetos - Atributos de campos de formulário de uso dispensável<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-melhoria">melhoria</span><span class="label-tag label-requisito">R 4.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/11" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Atributos de campos de formulário de uso dispensável</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/11" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Atributos de campos de formulário de uso dispensável</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          R 4.1 - 10 Aspetos - Campos sem etiquetas<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 4.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/10" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Campos sem etiquetas</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/10" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Campos sem etiquetas</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-4.2">Requisito 4.2 - É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã</h4>
+        <h4 class="requirement-title" id="req-chk10-r-4.2">Requisito 4.2 - É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 4.2 - 10 Aspetos - Existe um campo que não está estruturado como obrigatório<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 4.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/23" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Existe um campo que não está estruturado como obrigatório</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/23" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Existe um campo que não está estruturado como obrigatório</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-4.3">Requisito 4.3 - É possível localizar e ler as mensagens de erro usando apenas um leitor de ecrã</h4>
+        <h4 class="requirement-title" id="req-chk10-r-5.3">Requisito 5.3 - As imagens-link têm um equivalente alternativo correto</h4>
       <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 4.3 - 10 Aspetos - Ok<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 4.3</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/27" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Imagens link sem texto alternativo</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.3</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/26" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Imagens link sem texto alternativo</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-5.1">Requisito 5.1 - A imagem ou gráfico tem um equivalente alternativo em texto curto e correto</h4>
+        <h4 class="requirement-title" id="req-chk10-r-6.1">Requisito 6.1 - No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 5.1 - 10 Aspetos - Imagens com descrição textual incorreta<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 5.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/6" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-5.2">Requisito 5.2 - O gráfico é acompanhado de uma descrição longa</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 5.2 - 10 Aspetos - Existe um infográfico sem descrição do conteúdo<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 5.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/25" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-5.3">Requisito 5.3 - As imagens-link têm um equivalente alternativo correto</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 5.3 - 10 Aspetos - Imagens link sem texto alternativo<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 5.3</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/26" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-6.1">Requisito 6.1 - No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 6.1 - 10 Aspetos - Existem textos com contraste abaixo do recomendado no estado hover<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 6.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/29" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Existem textos com contraste abaixo do recomendado no estado hover</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 6.1</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/29" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Existem textos com contraste abaixo do recomendado no estado hover</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          R 6.1 - 10 Aspetos - O texto não tem contraste suficiente<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 6.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/28" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>O texto não tem contraste suficiente</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 6.1</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/28" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">O texto não tem contraste suficiente</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-6.2">Requisito 6.2 - O rácio de contraste entre a cor do texto de tamanho grande (maior ou igual que 18 pontos ou maior ou igual que 14 pontos negrito) e a cor do fundo é superior a 3:1</h4>
+        <h4 class="requirement-title" id="req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</h4>
       <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 6.2 - 10 Aspetos - OK<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 6.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/40" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>vídeos com mensagens eminentemente visuais sem audiodescrição ou transcrição descritiva</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 7.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/8" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">vídeos com mensagens eminentemente visuais sem audiodescrição ou transcrição descritiva</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-7.1">Requisito 7.1 - Deve ser possível ativar os botões de controlo do leitor quer com o rato quer com o teclado</h4>
+        <h4 class="requirement-title" id="req-chk10-r-8.2">Requisito 8.2 - Quando se retira a CSS, a informação aparece numa ordem lógica</h4>
       <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 7.1 - 10 Aspetos - Ok<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 7.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/30" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 7.2 - 10 Aspetos - vídeos com mensagens eminentemente visuais sem audiodescrição ou transcrição descritiva<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 7.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/8" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-8.1">Requisito 8.1 - Quando se retira a CSS, todos os elementos HTML devem alinhar à esquerda</h4>
-      <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 8.1 - 10 Aspetos - Ok<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 8.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/31" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-8.2">Requisito 8.2 - Quando se retira a CSS, a informação aparece numa ordem lógica</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 8.2 - 10 Aspetos- Existem conteúdos que estão visíveis apenas para tecnologias de apoio<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 8.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/32" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>R 8.2 - 10 Aspetos- Existem conteúdos que estão visíveis apenas para tecnologias de apoio</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/32" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">R 8.2 - 10 Aspetos- Existem conteúdos que estão visíveis apenas para tecnologias de apoio</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          R 8.2 - 10 Aspetos - Existem conteúdos que estão visíveis apenas para tecnologias de apoio<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 8.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/9" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Existem conteúdos que estão visíveis apenas para tecnologias de apoio</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/9" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Existem conteúdos que estão visíveis apenas para tecnologias de apoio</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-8.3">Requisito 8.3 - Quando se retira a CSS, deve ser possível reconhecer a semântica dos diversos elementos</h4>
+        <h4 class="requirement-title" id="req-chk10-r-8.3">Requisito 8.3 - Quando se retira a CSS, deve ser possível reconhecer a semântica dos diversos elementos</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 8.3 - 10 Aspetos - As legendas estão sendo utilizadas de forma inapropriada<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 8.3</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/44" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>As legendas estão sendo utilizadas de forma inapropriada</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/44" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">As legendas estão sendo utilizadas de forma inapropriada</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          R 8.3 - 10 Aspetos - Uso de listas de forma inapropriada<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 8.3</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/33" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Uso de listas de forma inapropriada</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/33" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Uso de listas de forma inapropriada</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          R 8.3 - 10 Aspetos - Acordeons implementados com atributos inadequados<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 8.3</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/14" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Acordeons implementados com atributos inadequados</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/14" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Acordeons implementados com atributos inadequados</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-8.4">Requisito 8.4 - Quando se retira a CSS, a informação relevante permanece visível</h4>
+        <h4 class="requirement-title" id="req-chk10-r-9.1">Requisito 9.1 - Quando a caixa de diálogo é aberta, o foco (cursor do Browser) move-se para um elemento dentro da caixa de diálogo</h4>
       <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 8.4 - 10 Aspetos - Ok<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 8.4</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/34" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>O foco não é direcionado para dentro da modal</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.1</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/36" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">O foco não é direcionado para dentro da modal</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-8.5">Requisito 8.5 - A maquetização da página é feita sem recorrer ao elemento &lt;table&gt;</h4>
+        <h4 class="requirement-title" id="req-chk10-r-9.2">Requisito 9.2 - Quando uma caixa de diálogo está aberta, a navegação com teclado (Browser ou Tecnologia de apoio) tem de ficar circunscrita aos elementos que compõem a caixa de diálogo</h4>
       <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 8.5 - 10 Aspetos - Ok<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 8.5</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/35" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>O foco não está limitado à modal do player de vídeo</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/37" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">O foco não está limitado à modal do player de vídeo</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-9.1">Requisito 9.1 - Quando a caixa de diálogo é aberta, o foco (cursor do Browser) move-se para um elemento dentro da caixa de diálogo</h4>
+        <h4 class="requirement-title" id="req-chk10-r-9.3">Requisito 9.3 - A caixa de diálogo tem de ter um mecanismo que permita sair ou fechar a caixa, quer através de teclado quer através de um dispositivo apontador</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 9.1 - 10 Aspetos - O foco não é direcionado para dentro da modal<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 9.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/36" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Botões de fecho das modais não estão acessíveis com leitor de ecrã e teclado</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.3</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/38" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Botões de fecho das modais não estão acessíveis com leitor de ecrã e teclado</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-9.2">Requisito 9.2 - Quando uma caixa de diálogo está aberta, a navegação com teclado (Browser ou Tecnologia de apoio) tem de ficar circunscrita aos elementos que compõem a caixa de diálogo</h4>
+        <h4 class="requirement-title" id="req-chk10-r-9.4">Requisito 9.4 - Quando a caixa de diálogo fecha, o foco (cursor do Browser) deve voltar ao elemento interativo que a invocou</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 9.2 - 10 Aspetos - O foco não está limitado à modal do player de vídeo<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 9.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/37" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>O foco é perdido quando a janela modal é fechada</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.4</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/39" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">O foco é perdido quando a janela modal é fechada</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-9.3">Requisito 9.3 - A caixa de diálogo tem de ter um mecanismo que permita sair ou fechar a caixa, quer através de teclado quer através de um dispositivo apontador</h4>
+        <h4 class="requirement-title" id="req-chk10-r-10.1">Requisito 10.1 - Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 9.3 - 10 Aspetos - Botões de fecho das modais não estão acessíveis com leitor de ecrã e teclado<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 9.3</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/38" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-9.4">Requisito 9.4 - Quando a caixa de diálogo fecha, o foco (cursor do Browser) deve voltar ao elemento interativo que a invocou</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 9.4 - 10 Aspetos - O foco é perdido quando a janela modal é fechada<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 9.4</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/39" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-chk10-r-10.1">Requisito 10.1 - Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 10.1 - 10 Aspetos - Não é possível extrair o texto de ficheiros PDF para outro processador de texto<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk 10 web</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 10.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/13" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Não é possível extrair o texto de ficheiros PDF para outro processador de texto</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 10.1</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/13" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Não é possível extrair o texto de ficheiros PDF para outro processador de texto</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
       </div>
@@ -795,14 +628,14 @@
       
       <div class="checklist-section">
         <h3 id="checklist-conteudo">Checklist Conteúdo</h3>
-        <p><span class="status-nok">NOK</span></p>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         
     <p><strong>Nível de conformidade:</strong></p>
     <ul>
-      <li><strong>Checklist Conteúdo</strong>: 58.8% (10/17)
+      <li><strong>Checklist Conteúdo</strong>: 0.0% (0/7)
         <ul>
-          <li>Requisitos avaliados: 17 (17 aplicáveis)</li>
-          <li>Requisitos OK: 10</li>
+          <li>Requisitos avaliados: 7 (7 aplicáveis)</li>
+          
           <li>Requisitos NOK: 7</li>
           
         </ul>
@@ -810,208 +643,81 @@
     </ul>
   
         
-      <h4 class="requirement-title" id="req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</h4>
+        <h4 class="requirement-title" id="req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 1.1 - Conteúdo - Resumo do propósito do site na homepage não visível em todas as resoluções, sem fazer scroll<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 1.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/45" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Resumo do propósito do site na homepage não visível em todas as resoluções, sem fazer scroll</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/45" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Resumo do propósito do site na homepage não visível em todas as resoluções, sem fazer scroll</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</h4>
+        <h4 class="requirement-title" id="req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 1.2 - Conteúdo - Inexistência de termos complexos<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 1.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/46" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Inexistência de termos complexos</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/46" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Inexistência de termos complexos</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-1.3">Requisito 1.3 - Cada bloco de conteúdo contém a sua data de atualização</h4>
+        <h4 class="requirement-title" id="req-conteudo-r-2.1">Requisito 2.1 - O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos</h4>
       <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 1.3 - Conteúdo - Ok<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 1.3</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/47" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>O corpo de texto tem um tamanho inferior ao recomendado (16 pixeis)</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.1</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/49" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">O corpo de texto tem um tamanho inferior ao recomendado (16 pixeis)</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-1.4">Requisito 1.4 - A informação sobre a entidade responsável pelo conteúdo está em todas as páginas</h4>
+        <h4 class="requirement-title" id="req-conteudo-r-2.2">Requisito 2.2 - A informação secundária (datas, autores) utiliza, no mínimo, um tamanho de letra de 10 pontos</h4>
       <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 1.4 - Conteúdo - Ok<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 1.4</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/48" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Existem conteúdos secundários com tamanho de fonte abaixo do recomendado</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/50" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Existem conteúdos secundários com tamanho de fonte abaixo do recomendado</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-2.1">Requisito 2.1 - O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos</h4>
+        <h4 class="requirement-title" id="req-conteudo-r-2.3">Requisito 2.3 - Blocos e linhas de texto com largura não superior a 100 caracteres</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 2.1 - Conteúdo - O corpo de texto tem um tamanho inferior ao recomendado (16 pixeis)<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/49" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Existem blocos de texto com mais de 100 caracteres por linha</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.3</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/51" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Existem blocos de texto com mais de 100 caracteres por linha</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-2.2">Requisito 2.2 - A informação secundária (datas, autores) utiliza, no mínimo, um tamanho de letra de 10 pontos</h4>
+        <h4 class="requirement-title" id="req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 2.2 - Conteúdo - Existem conteúdos secundários com tamanho de fonte abaixo do recomendado<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/50" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Não existe um índice no topo de páginas longas</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/58" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Não existe um índice no topo de páginas longas</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-2.3">Requisito 2.3 - Blocos e linhas de texto com largura não superior a 100 caracteres</h4>
+        <h4 class="requirement-title" id="req-conteudo-r-5.2">Requisito 5.2 - Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos) (vertical e horizontal)</h4>
       <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          R 2.3 - Conteúdo - Existem blocos de texto com mais de 100 caracteres por linha<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 2.3</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/51" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-2.4">Requisito 2.4 - O espaçamento entre linhas não é inferior a 1.5x o tamanho da letra</h4>
-      <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 2.4 - Conteúdo - OK<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 2.4</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/52" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-3.1">Requisito 3.1 - Nenhum nível de navegação tem mais de 9 opções</h4>
-      <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 3.1 - Conteúdo - Ok<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 3.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/53" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-3.2">Requisito 3.2 - A navegação principal está sempre visível e sempre no mesmo local</h4>
-      <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 3.2 - Conteúdo - OK<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 3.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/55" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-3.3">Requisito 3.3 - As hiperligações de texto não devem ser diferenciadas apenas com base na cor</h4>
-      <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 3.3 - Conteúdo - OK<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 3.3</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/57" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 4.1 - Conteúdo - Não existe um índice no topo de páginas longas<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 4.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/58" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-4.2">Requisito 4.2 - O layout do sítio Web é adaptável a plataformas móveis sem necessidade de efetuar varrimento horizontal</h4>
-      <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 4.2 - Conteúdo - OK<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 4.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/59" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-5.1">Requisito 5.1 - Não existem elementos interativos acionados apenas com a passagem do rato (hover)</h4>
-      <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 5.1 - Conteúdo - OK<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 5.1</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/60" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-5.2">Requisito 5.2 - Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos) (vertical e horizontal)</h4>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 5.2 - Conteúdo - Existem elementos interativos com tamanho abaixo do recomendado (44 x 44 pixels)<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-nok">NOK</span><span class="label-tag label-requisito">R 5.2</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/64" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-5.3">Requisito 5.3 - Há apenas um botão de ação principal por página e o mesmo encontra-se destacado</h4>
-      <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 5.3 - Conteúdo - OK<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 5.3</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/62" target="_blank">Ver detalhes no GitHub</a>
-        </li>
-      </ul></div>
-      <h4 class="requirement-title" id="req-conteudo-r-5.4">Requisito 5.4 - Elementos gráficos interativos têm de aparentar ser clicáveis</h4>
-      <div class="requirement-content">
-        <p><span class="status-ok">OK</span></p>
-        <p>Lista de evidências recolhidas:</p>
-    <ul class="evidence-list">
-        <li class="evidence-item">
-          R 5.4 - Conteúdo - OK<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-checklist">chk conteúdo</span><span class="label-tag label-ok">OK</span><span class="label-tag label-requisito">R 5.4</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/63" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Existem elementos interativos com tamanho abaixo do recomendado (44 x 44 pixels)</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.2</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/64" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Existem elementos interativos com tamanho abaixo do recomendado (44 x 44 pixels)</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
       </div>
@@ -1019,53 +725,50 @@
       
     </section>
 
-    
-    <section id="outras-violacoes" class="mb-5 report-section">
-      <h2>Outras violações</h2>
-      
-      <h3 class="requirement-title" id="req-outras-outras-violações">Outras violações</h3>
-      <div class="requirement-content">
-        <p><span class="status-nok">NOK</span></p>
+         
+     <section id="outras-violacoes" class="mb-5 report-section">
+       <h2 id="req-outras-violacoes">Outras violações</h2>
+       <div class="requirement-content">
+                                   <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
         <p>Lista de evidências recolhidas:</p>
     <ul class="evidence-list">
         <li class="evidence-item">
-          Outras violações - Existem duas navegações com a mesma informação<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-outras">outras violações</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/54" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Outras violações - Existem duas navegações com a mesma informação</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/54" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Outras violações - Existem duas navegações com a mesma informação</span> (abre no GitHub)</a></p>
         </li>
       
         <li class="evidence-item">
-          Outras violações - Idioma dos elementos interativos dos carrosséis diferente do idioma do site<br>
-          <span class="sr-only">etiqueta:</span>
-          <div class="evidence-labels"><span class="label-tag label-outras">outras violações</span></div><br>
-          <a class="github-link" href="https://github.com/unidade-acesso/report_002/issues/41" target="_blank">Ver detalhes no GitHub</a>
+          <p><span class="visually-hidden">evidência: </span><strong>Outras violações - Idioma dos elementos interativos dos carrosséis diferente do idioma do site</strong></p>
+          <div class="evidence-labels"><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span></div>
+          <p><a href="https://github.com/unidade-acesso/report_002/issues/41" class="btn btn-outline-dark btn-lg" target="_blank" rel="noopener noreferrer">Consultar detalhe da evidência<span class="visually-hidden">Outras violações - Idioma dos elementos interativos dos carrosséis diferente do idioma do site</span> (abre no GitHub)</a></p>
         </li>
       </ul></div>
-    </section>
+     </section>
 
-    <section id="etiquetas" class="mb-5 report-section">
-      <h2>Significado das etiquetas utilizadas</h2>
+         <section id="etiquetas" class="mb-5 report-section">
+       <h2 id="req-etiquetas">Significado das etiquetas utilizadas</h2>
       <ul>
-        <li><span class="label-tag label-ok">OK</span> - status OK</li>
-        <li><span class="label-tag label-melhoria">melhoria</span> - status OK, mas pode melhorar</li>
-        <li><span class="label-tag label-nok">NOK</span> - status Not OK</li>
-        <li><span class="label-tag label-na">N/A</span> - status Não Aplicável</li>
-        <li><span class="label-tag label-requisito">R 1.1</span> - identificação de requisito específico</li>
-        <li><span class="label-tag label-checklist">chk 10 web</span> - checklist 10 Aspetos críticos de acessibilidade funcional</li>
-        <li><span class="label-tag label-checklist">chk conteúdo</span> - checklist Conteúdo</li>
-        
-        <li><span class="label-tag label-declaracao">dec a11y</span> - permite construir o capítulo "Declaração de acessibilidade e usabilidade"</li>
-        <li><span class="label-tag label-auto">av auto</span> - permite construir o capítulo "Avaliação automática"</li>
-        <li><span class="label-tag label-outras">outras violações</span> - permite construir o capítulo "Outras violações"</li>
+                                   <li><span class="label-tag label-ok"><span class="sr-only">etiqueta: </span>OK</span> - status OK</li>
+                                   <li><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span> - status OK, mas pode melhorar</li>
+                                   <li><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span> - status Not OK</li>
+                                   <li><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span> - status Não Aplicável</li>
+                                   <li><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span> - identificação de requisito específico</li>
+                                   <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span> - checklist 10 Aspetos críticos de acessibilidade funcional</li>
+                                   <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span> - checklist Conteúdo</li>
+                                   
+                                   <li><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span> - permite construir o capítulo "Declaração de acessibilidade e usabilidade"</li>
+                                   <li><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span> - permite construir o capítulo "Avaliação automática"</li>
+                                   <li><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span> - permite construir o capítulo "Outras violações"</li>
       </ul>
     </section>
 
   </div>
 
-  <footer class="mt-5 pt-4 border-top text-center text-muted" role="contentinfo">
+  <footer class="mt-5 pt-4 border-top text-center text-muted">
     <div class="container">
       <p>© 2025 AMA - Agência para a Modernização Administrativa, I.P. Todos os Direitos Reservados.</p>
+      <p><em lang="en">GitReports v1.0</em> - relatório gerado automaticamente a partir dos <em lang="en">issues</em> do GitHub</p>
     </div>
   </footer>
 
