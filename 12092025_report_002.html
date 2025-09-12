@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Relatório Câmara Municipal do Barreiro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000;
+      color: white;
+      padding: 8px;
+      z-index: 100;
+      transition: top 0.3s ease;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    .visually-hidden-focusable:not(:focus):not(:focus-within) {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0,0,0,0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+    .container {
+      max-width: 900px;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .status-ok { 
+      color: #ffffff; 
+      background-color: #0E8A16; 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 50px;
+      font-weight: 500;
+      display: inline-block;
+    }
+    .status-nok { 
+      color: #ffffff; 
+      background-color: #B60205; 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 50px;
+      font-weight: 500;
+      display: inline-block;
+    }
+    .status-melhoria { 
+      color: #856404; 
+      background-color: #fff3cd; 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 50px;
+      font-weight: 500;
+      display: inline-block;
+    }
+        .status-na {
+      color: #000;
+      background-color: #C2E0C6; 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 50px;
+      font-weight: 500;
+      display: inline-block;
+    }
+    .requirement-title { 
+      margin-top: 2rem; 
+    }
+    .requirement-title h4,
+    .requirement-title h3 {
+      color: #000;
+    }
+    .mb-4 ul li a {
+      color: #1e3a8a;
+      text-decoration: none;
+    }
+    .mb-4 ul li a:hover {
+      color: #1e40af;
+      text-decoration: underline;
+    }
+
+    /* Índice (summary) com maior destaque visual e acessível */
+    summary.index-summary {
+      display: list-item; /* manter marcador nativo */
+      font-weight: 700;
+      font-size: 1.25rem !important; /* aumentar o texto */
+      color: #000;
+      padding-left: 0; /* sem recuo extra */
+      border-left: none; /* sem borda lateral */
+      border-radius: 0;
+      cursor: pointer;
+    }
+    summary.index-summary:hover {
+      background-color: transparent; /* sem fundo ao hover */
+    }
+    summary.index-summary:focus {
+      outline: 3px solid #333399;
+      outline-offset: 2px;
+    }
+    /* Aumentar o tamanho da seta nativa (compatibilidade ampla) */
+    summary.index-summary::marker {
+      font-size: 1em;
+    }
+    summary.index-summary::-webkit-details-marker {
+      font-size: 1em;
+    }
+
+    .evidence-list { 
+      list-style-type: disc; 
+      padding-left: 1.5rem; 
+      margin: 1rem 0; 
+    }
+    .evidence-item { 
+      margin: 0.5rem 0; 
+      padding: 0.5rem 0.5rem 0.5rem 1.5rem; 
+      border-radius: 4px;
+      background-color: #f6f6f6;
+      color: #000;
+      margin-left: -1.5rem;
+      list-style-position: inside;
+      list-style: none;
+    }
+    
+    
+    .evidence-item p {
+      margin: 1.5rem 0 1rem 0;
+    }
+    
+
+    .evidence-labels {
+      font-size: 0.85em;
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+    .label-tag {
+      padding: 0.125rem 0.375rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: white;
+      display: inline-block;
+      margin-right: 0.25rem;
+    }
+    .label-checklist { background-color: #5319E7; }
+    .label-auto { background-color: #5319E7; }
+    .label-declaracao { background-color: #5319E7; }
+    .label-outras { background-color: #5319E7; }
+    .label-melhoria { background-color: #FBCA04; color: #000; }
+    .label-na { background-color: #C2E0C6; color: #000; }
+    .label-ok { background-color: #0E8A16; }
+    .label-nok { background-color: #B60205; }
+    .label-requisito { background-color: #0052CC; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    #checklist-10-aspetos {
+      margin-top: 3.5rem !important;
+    }
+    .report-section {
+      border-bottom: 3px solid #000000;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+    .report-section:last-child {
+      border-bottom: none;
+    }
+    .avaliacao-manual-section:last-child {
+      border-bottom: none;
+    }
+    .checklist-section {
+      border-bottom: 3px solid #000000;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .avaliacao-manual-section {
+      border-bottom: 1px solid #000000;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .checklist-section:last-child {
+      border-bottom: none;
+    }
+
+    #avaliacao-manual {
+      border-bottom: 1px solid #000000 !important;
+    }
+    /* Tabelas: caption por cima */
+    table.table caption {
+      caption-side: top;
+      text-align: left;
+      padding-bottom: 0.5rem;
+      font-weight: 600;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <a href="#conteudo-principal" class="skip-link visually-hidden-focusable">Saltar para o conteúdo principal</a>
+  <div class="container mt-4" id="conteudo-principal">
+    <header class="mb-4">
+      <h1>Relatório Avaliação da Candidatura da Câmara Municipal do Barreiro</h1>
+    </header>
+
+    <section class="mb-4">
+      <ul>
+        <li>Avaliação feita por: ARTE. I.P. - Núcleo de Experiência e Usabilidade</li>
+        <li>Data de criação: 03/06/2025</li>
+        <li>Última atualização: 12/09/2025</li>
+        <li>URL: <a href="https://www.cm-barreiro.pt" target="_blank" rel="noopener noreferrer">https://www.cm-barreiro.pt</a></li>
+        <li>Propriedade: CM Barreiro</li>
+        <li>Candidatura: Bronze</li>
+          <li>Progresso (% de requisitos auditados): 100%</li>
+      </ul>
+    </section>
+
+
+
+    <nav class="mb-4 report-section" aria-label="Índice">
+      <details open>
+        <summary class="index-summary">Índice</summary>
+        <ul>
+          <li><a href="#introducao">Introdução</a></li>
+          <li><a href="#declaracao">Declaração de Acessibilidade</a></li>
+          <li><a href="#avaliacao-automatica">Avaliação automática</a></li>
+          
+          <li><a href="#avaliacao-manual">Avaliação manual</a>
+            <ul class="indent-list">
+              
+              <li><a href="#checklist-10-aspetos">Checklist 10 aspetos</a>
+                <ul class="indent-list">
+                  <li><a href="#req-chk10-r-1.1">Requisito 1.1 - O menu de navegação deve estar estruturado como uma lista de opções</a></li><li><a href="#req-chk10-r-1.2">Requisito 1.2 - É possível selecionar as opções e as subopções do menu quer com rato quer com teclado</a></li><li><a href="#req-chk10-r-1.3">Requisito 1.3 - As imagens-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto</a></li><li><a href="#req-chk10-r-2.2">Requisito 2.2 - Existe uma marcação hierarquizada de títulos e subtítulos na página (&lt;h1&gt;...&lt;h6&gt;)</a></li><li><a href="#req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</a></li><li><a href="#req-chk10-r-4.2">Requisito 4.2 - É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã</a></li><li><a href="#req-chk10-r-5.3">Requisito 5.3 - As imagens-link têm um equivalente alternativo correto</a></li><li><a href="#req-chk10-r-6.1">Requisito 6.1 - No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1</a></li><li><a href="#req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</a></li><li><a href="#req-chk10-r-8.2">Requisito 8.2 - Quando se retira a CSS, a informação aparece numa ordem lógica</a></li><li><a href="#req-chk10-r-8.3">Requisito 8.3 - Quando se retira a CSS, deve ser possível reconhecer a semântica dos diversos elementos</a></li><li><a href="#req-chk10-r-9.1">Requisito 9.1 - Quando a caixa de diálogo é aberta, o foco (cursor do Browser) move-se para um elemento dentro da caixa de diálogo</a></li><li><a href="#req-chk10-r-9.2">Requisito 9.2 - Quando uma caixa de diálogo está aberta, a navegação com teclado (Browser ou Tecnologia de apoio) tem de ficar circunscrita aos elementos que compõem a caixa de diálogo</a></li><li><a href="#req-chk10-r-9.3">Requisito 9.3 - A caixa de diálogo tem de ter um mecanismo que permita sair ou fechar a caixa, quer através de teclado quer através de um dispositivo apontador</a></li><li><a href="#req-chk10-r-9.4">Requisito 9.4 - Quando a caixa de diálogo fecha, o foco (cursor do Browser) deve voltar ao elemento interativo que a invocou</a></li><li><a href="#req-chk10-r-10.1">Requisito 10.1 - Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT</a></li>
+                </ul>
+              </li>
+              
+              <li><a href="#checklist-conteudo">Checklist Conteúdo</a>
+                <ul class="indent-list">
+                  <li><a href="#req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</a></li><li><a href="#req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</a></li><li><a href="#req-conteudo-r-2.1">Requisito 2.1 - O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos</a></li><li><a href="#req-conteudo-r-2.2">Requisito 2.2 - A informação secundária (datas, autores) utiliza, no mínimo, um tamanho de letra de 10 pontos</a></li><li><a href="#req-conteudo-r-2.3">Requisito 2.3 - Blocos e linhas de texto com largura não superior a 100 caracteres</a></li><li><a href="#req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</a></li><li><a href="#req-conteudo-r-5.2">Requisito 5.2 - Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos) (vertical e horizontal)</a></li>
+                </ul>
+              </li>
+              
+              <li><a href="#outras-violacoes">Outras violações</a></li>
+            </ul>
+          </li>
+          
+          <li><a href="#etiquetas">Significado das etiquetas utilizadas</a></li>
+        </ul>
+      </details>
+    </nav>
+
+         <section id="introducao" class="mb-5 report-section">
+       <h2 id="req-introducao">Introdução</h2>
+      <p>O website <a href="https://www.cm-barreiro.pt" target="_blank">https://www.cm-barreiro.pt</a> <strong><span class="status-nok"><span class="sr-only">etiqueta: </span>não passa</span></strong> nos requisitos mínimos do Selo de Usabilidade e Acessibilidade.</p>
+      
+      <table class="table table-bordered">
+        <caption>Estado das avaliações efetuadas</caption>
+        <thead>
+          <tr>
+            <th>Tipo de avaliação</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Avaliação Automática</td>
+            <td><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></td>
+          </tr>
+          <tr>
+            <td>Avaliação Manual</td>
+            <td><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      
+      <p>Das avaliações manuais efetuadas obtiveram-se os resultados que se sintetizam na tabela seguinte.</p>
+      <table class="table table-bordered">
+        <caption>Níveis de conformidade das avaliações manuais</caption>
+        <thead>
+          <tr>
+            <th>Checklist</th>
+            <th>Conformidade alcançada</th>
+            <th>Resultado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10 aspetos</td>
+            <td>42.3% (11/26)</td>
+            <td><span class="status-nok"><span class="sr-only">etiqueta: </span>Não passa</span></td>
+          </tr>
+          
+          <tr>
+            <td>Conteúdo</td>
+            <td>58.8% (10/17)</td>
+            <td><span class="status-nok"><span class="sr-only">etiqueta: </span>Não passa</span></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      <p><strong>Nota:</strong> para passar os requisitos do Selo é necessário alcançar um nível de conformidade superior ou igual a 75% em cada uma das 3 checklists.</p>
+      
+      
+    </section>
+
+              
+     <section id="declaracao" class="mb-5 report-section">
+       <h2 id="req-declaracao-declaracao-de-acessibilidade">Declaração de Acessibilidade</h2>
+        <p><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span></p>
+       <p>De acordo com o <a href="https://www.acessibilidade.gov.pt/blogue/categoria-acessibilidade/dl-n-o-83-2018-acessibilidade-dos-sitios-web-e-das-aplicacoes-moveis/#n8" target="_blank" rel="noopener noreferrer">artigo 8º do DL n.º 83/2018</a>, todos os sítios web e todas as aplicações móveis têm de ostentar uma Declaração de Acessibilidade. A Declaração é o documento na qual a organização evidencia o trabalho levado a efeito para tornar os seus conteúdos e serviços digitais mais acessíveis, disponibilizando ainda contactos para ajuda adicional.</p>
+      
+       <p>Lista de evidências recolhidas:</p>
+       <ul class="evidence-list">
+         
+             <li class="evidence-item">
+               <p><span class="visually-hidden">evidência: </span><strong>Declaração de acessibilidade</strong></p>
+               <div class="evidence-labels"><span class="label-tag label-ok"><span class="sr-only">etiqueta: </span>OK</span><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span></div>
+               
+             </li>
+           
+       </ul>
+     </section>
+
+              
+     <section id="avaliacao-automatica" class="mb-5 report-section">
+       <h2 id="req-automatic-avaliacao-automatica">Avaliação automática</h2>
+       <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+       <p>Para a produção das evidências do presente capítulo, foram utilizadas ferramentas automatizadas de avaliação de requisitos de acessibilidade de acordo com a norma WCAG 2.1 'AA'. A amostra em análise pelas ferramentas é composta pela Homepage mais todas as páginas diretamente hiperligadas por ela, pertencentes ao domínio.</p>
+       
+       <p>Lista de evidências recolhidas:</p>
+       <ul class="evidence-list">
+         
+             <li class="evidence-item">
+               <p><span class="visually-hidden">evidência: </span><strong>Páginas que não ultrapassam o score de 9 pontos</strong></p>
+               <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
+               <div class="issue-content"><p>Para obter o Selo de Usabilidade e Acessibilidade, os sítios web devem apresentar todas as páginas com valores a partir de 9.<br>No caso da CM Barreiro foi localizada 1 página na amostra com valores abaixo de 9 pontos:<br><a href="https://www.cm-barreiro.pt/conhecer/agenda-de-eventos/51-anos-do-25-de-abril/">https://www.cm-barreiro.pt/conhecer/agenda-de-eventos/51-anos-do-25-de-abril/</a></p>
+</div>
+             </li>
+           
+             <li class="evidence-item">
+               <p><span class="visually-hidden">evidência: </span><strong>Avaliação automática - Access Monitor / Observatório</strong></p>
+               <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
+               <div class="issue-content"><p>Analisámos a amostra com o Access Monitor, de acordo com o método Home+, e obteve-se, no total, 590 páginas. Destas, 59 páginas (10%) não cumprem os testes de conformidade ‘AA’ da WCAG.</p>
+<img src="https://github.com/user-attachments/assets/81fd44c8-eaf9-45cc-9a51-b037faec8b96" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Resultados da amostra do site da CM Barreiro no Observatório Português da Acessibilidade Web</em></p>
+</div>
+             </li>
+           
+             <li class="evidence-item">
+               <p><span class="visually-hidden">evidência: </span><strong>Avaliação automática - Rocket Validator</strong></p>
+               <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
+               <div class="issue-content"><p>Efetuámos também uma análise com o validador Rocket Validator que revela a existência de 8314 erros e 388 avisos de Acessibilidade. Para mais informações partilhamos o <a href="https://rocketvalidator.com/s/197f25fd-4d4b-4fb9-97e4-4b9a24727c18">relatório da análise automática feita com o Rocket Validator</a></p>
+<img src="https://github.com/user-attachments/assets/088bbfcd-317d-4fae-9af1-ff76645f2242" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Relatório de análise automática feita pelo Rocket Validator aponta 8314 erros e 388 avisos de Acessibilidade</em></p>
+</div>
+             </li>
+           
+       </ul>
+     </section>
+
+         
+     <section id="avaliacao-manual" class="mb-5 mt-5 avaliacao-manual-section">
+       <h2 id="req-avaliacao-manual">Avaliação manual</h2>
+       <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+       <p>A avaliação manual é feita por inspeção perícial dos diversos requisitos constantes da:</p>
+       <ul>
+         <li>checklist <strong>10 aspetos críticos de acessibilidade funcional</strong>;</li>
+         <li>checklist <strong>Conteúdo</strong> (se candidato a Selo Bronze);</li>
+         
+       </ul>
+       <p>Sempre que os auditores localizam uma falha grave de um requisito de acessibilidade que, embora não faça parte do esquema de requisitos do Selo, se enquadre no âmbito das violações das WCAG 2.1 'AA' do W3C, tal referência é anotada em "Outras violações" do presente capítulo. Apesar destas violações não se apresentarem com carácter vinculativo no esquema de requisitos do Selo, recomenda-se que as mesmas sejam corrigidas.</p>
+
+      
+      <div class="checklist-section">
+        <h3 id="checklist-10-aspetos">Checklist 10 aspetos</h3>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        
+    <p><strong>Nível de conformidade:</strong></p>
+    <ul>
+      <li><strong>Checklist 10 aspetos</strong>: 42.3% (11/26)
+        <ul>
+          <li>Requisitos avaliados: 27 (1 N/A excluído, 26 aplicáveis)</li>
+          <li>Requisitos OK: 11</li>
+          <li>Requisitos NOK: 15</li>
+          <li>Requisitos N/A: 1</li>
+        </ul>
+      </li>
+    </ul>
+    
+        
+        <h4 class="requirement-title" id="req-chk10-r-1.1">Requisito 1.1 - O menu de navegação deve estar estruturado como uma lista de opções</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Há opções do menu que não estão estruturadas como lista (elementos "ul" e "li")</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>O menu de navegação deve estar estruturado como uma lista de opções. </p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n11">Ver requisito 1.1 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p>Verificámos que as opções presentes nos menus do rodapé do website não estão estruturadas como lista <code>ul</code> <code>li</code>, nomeadamente:</p>
+<ul>
+<li>O menu com os links úteis.</li>
+<li>O menu com a indicação das redes sociais do website.</li>
+</ul>
+<p><img src="https://github.com/user-attachments/assets/1cbcd5ad-ffe1-42e9-9ce1-9fb2131bc817" alt="image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Secção links úteis no rodapé da página</em></p>
+<p><img src="https://github.com/user-attachments/assets/c719f92a-e918-48d6-91dc-152d34bcf8a5" alt="image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Secção de links para redes sociais no rodapé da página</em></p>
+<p>Para que a navegação seja acessível e corretamente interpretada pelas tecnologias de apoio, os elementos dos menus e submenus deverão estar todos estruturados como listas, recorrendo aos elementos <code>ul</code> e <code>li</code>.<br>Recomendamos que os menus referidos acima sejam estruturados como listas, utilizando tags <code>ul</code> e <code>li</code>.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-1.2">Requisito 1.2 - É possível selecionar as opções e as subopções do menu quer com rato quer com teclado</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Impossibilidade de aceder à página destino dos links de itens de menu que contenham subopções</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível selecionar as opções e as subopções do menu quer com rato quer com teclado.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n12">Ver requisito 1.2 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p>Verificámos que não existe forma de aceder, via teclado, às páginas de destino das hiperligações associadas aos itens do menu principal que contêm subopções.<br>Eis o comportamento das teclas relevantes:<br>– As teclas seta para a direita e seta para a esquerda expandem e colapsam os itens de menu com subopções.<br>– As teclas Enter e Espaço também expandem esses itens.<br>– As teclas Tab e Shift+Tab permitem a navegação entre todas as opções do menu que estejam visíveis ou expandidas.<br>No entanto, não existe qualquer forma de navegar diretamente para as páginas cujos URLs estão associados aos itens de menu com subopções.</p>
+<p><img src="https://github.com/user-attachments/assets/b88c493d-cc2e-4dcc-9d91-f1e2334eb9cb" alt="image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Figura 1 - Opções de primeiro nível do menu não são acessíveis pelo teclado</em></p>
+<p>Recomendamos a reestruturação do menu principal de forma a contemplar esta funcionalidade. Uma possível solução consiste na introdução de uma ligação separada para cada item de menu pai que contenha subopções. Neste <a href="https://www.w3.org/WAI/tutorials/menus/flyout/">tutorial da W3C</a> é apresentada uma explicação pormenorizada desta solução.</p>
+</div>
+              </li>
+            
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Teclas de navegação não correspondem ao mapa mental estabelecido</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível selecionar as opções e as subopções do menu quer com rato quer com teclado.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n12">Ver requisito 1.2 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p>Verificámos que, na versão desktop do menu principal, as teclas para expansão e colapso das opções de menu estão trocadas.<br>Com efeito, é utilizada a seta para a esquerda para expandir as opções de um item de menu e a seta direita para as colapsar, sendo este processo contrário à utilização comum deste tipo de tarefa.</p>
+<img src="https://github.com/user-attachments/assets/15bef43c-66a9-4cc2-ac65-55e6adebf9f6" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+<p><em>Menu com teclas de atalho invertidas ou mal implementadas</em></p>
+<p>Recomendamos que sejam trocadas as funções destas duas teclas, de modo a fazê-las corresponder ao seu uso intuitivo.<br>Verificámos ainda, na versão desktop do menu principal, que as teclas “seta para baixo” e “seta para cima” não apresentam um comportamento consistente ao atingir, respetivamente, o final e o início da lista de opções do menu. Quando o foco está no último item e se prime a tecla “seta para baixo”, nenhuma ação é executada. Em contraste, ao premir a tecla “seta para cima” no primeiro item, o foco move-se para o último item da lista.<br>Esta assimetria de comportamento é considerada incoerente.<br>Recomenda-se a uniformização do comportamento das teclas de navegação, garantindo que ambas realizem a mesma ação — seja inatividade ou rotação circular — quando acionadas nos limites superior e inferior do menu.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-1.3">Requisito 1.3 - As imagens-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto</h4>
+      <div class="requirement-content">
+        <p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>O requisito foi avaliado como “Sim”, mas é “Não Aplicável”</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>As imagem-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n13">Ver requisito 1.3 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p>Verificou-se que não existem imagens-link no menu. Quando o website não possui elementos mencionados pelo requisito, então o requisito será considerado como “Não Aplicável”.</p>
+<p>É necessário remover as evidências associadas a este requisito 1.3 da checklist dos 10 aspectos e a sua atualização para “Não Aplicável” na checklist.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-2.2">Requisito 2.2 - Existe uma marcação hierarquizada de títulos e subtítulos na página (&lt;h1&gt;...&lt;h6&gt;)</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Existem cabeçalhos mal atribuídos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Existe uma marcação hierarquizada de títulos e subtítulos na página <code>&lt;h1&gt;...&lt;h6&gt;</code>.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n22">ver requisito 2.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Nas páginas <a href="https://www.cm-barreiro.pt/conhecer/agenda-de-eventos/51-anos-do-25-de-abril/">51 anos do 25 de Abril</a>, <a href="https://www.cm-barreiro.pt/eventos/forum-barreiro-night-run-fbnr-2025/">NOVA DATA | Forum Barreiro Night Run 2025</a>, <a href="https://www.cm-barreiro.pt/viver/ambiente-planeamento-gestao-territorial-e-equipamentos/planeamento-mobilidade-informacao-geografica-gestao-e-regeneracao-urbana/urbanismo/processo-desmaterializacao/">Processo Desmaterialização</a><br>e <a href="https://www.cm-barreiro.pt/viver/intervencao-social-e-habitacao/servico-de-atendimento-e-acompanhamento-social/">Serviço de Atendimento e Acompanhamento Social</a> existem subtítulos que embora visualmente estejam destacados como negrito eles estão sendo estruturados como textos dentro de divs</p>
+<p><img src="https://github.com/user-attachments/assets/7776c42a-78d2-4438-97e1-c5e532e7545a" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>&#39;Data&#39; e &#39;Local&#39; estruturados como textos ao invés de serem cabeçalhos na página NOVA DATA | Forum Barreiro Night Run 2025</em></p>
+<p><img src="https://github.com/user-attachments/assets/f13eae65-08c9-4c5e-b1e7-44462b7bbaa1" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Dias dos eventos estão estruturados como textos ao invés de serem cabeçalhos na página 51 anos do 25 de Abril</em></p>
+<p><img src="https://github.com/user-attachments/assets/94432ef2-5517-48ff-b3ee-b58a341af48b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>O nome dos eventos estão sendo estruturados como <code>h2</code>ao invés de serem <code>h3</code> na página 51 anos do 25 de Abril</em></p>
+<p><img src="https://github.com/user-attachments/assets/420982d5-bdef-4ddf-aede-56d431f979d5" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>&#39;Entrega de processos em formato digital&#39;, &#39;Saiba como fazer&#39; e &#39;Como entregar processos:&#39; estão estruturados como texto ao invés de serem cabeçalhos <code>h2</code>, <code>h3</code>, <code>h3</code> respectivamente</em></p>
+<p>Recomendamos rever de modo geral o website para garantir que os textos muitas vezes destacados em negrito ou outro elemento visual, se transmitem uma organização lógica do conteúdo, devem ser estruturados como cabeçalhos.</p>
+</div>
+              </li>
+            
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Existe salto na hierarquia de cabeçalhos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Existe uma marcação hierarquizada de títulos e subtítulos na página <code>&lt;h1&gt;...&lt;h6&gt;</code>.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n22">ver requisito 2.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Nas páginas <a href="https://www.cm-barreiro.pt/cartao-barreiro-vertente-cheque-cultura-disponivel-cultura-para-todos-a-distancia-de-um-clique/">Cartão Barreiro vertente cheque cultura disponível | Cultura para todos à distância de um clique</a> e <a href="https://www.cm-barreiro.pt/visite-os-nossos-mercados-municipais/">Visite os nossos Mercados Municipais</a> existe um salto na hierarquia dos cabeçalhos, nomeadamente do <code>h1</code> para <code>h5</code> e do <code>h1</code> para <code>h3</code>, respetivamente.</p>
+<p><img src="https://github.com/user-attachments/assets/c282270b-d107-4343-a505-665c89fbaf22" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Salto na hierarquia do cabeçalho <code>h1</code> para <code>h3</code> na página Visite os nossos Mercados Municipais</em></p>
+<p><img src="https://github.com/user-attachments/assets/0d98de69-ef0d-40a3-8613-3f3059ae0c0d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Salto na hierarquia do cabeçalho <code>h1</code> para <code>h5</code> na página Cartão Barreiro vertente cheque cultura disponível | Cultura para todos à distância de um clique</em></p>
+<p>Recomendamos rever as páginas do website para garantir que respeitem a hierarquia de títulos e subtítulos, o que implica: </p>
+<ul>
+<li>Ter 1 título <code>h1</code> (que marca o texto que representa o título da página ou, no caso da Homepage, o logo da entidade);</li>
+<li>Ter as várias secções do documento marcadas com <code>h2</code>;</li>
+<li>Ter as várias subseções de <code>h2</code> marcadas com <code>h3</code>, as subsecções destas com <code>h4</code> e assim hierarquicamente encadeados até <code>h6</code>;</li>
+<li>Evitar ter elementos de hierarquia inferior sem um elemento de hierarquia imediatamente superior (subseções órfãs). Por exemplo, ter um <code>h3</code> sem a correspondente <code>h2</code>, ou <code>h4</code> sem a correspondente <code>h3</code>.</li>
+</ul>
+</div>
+              </li>
+            
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Existem cabeçalhos em branco</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Existe uma marcação hierarquizada de títulos e subtítulos na página <code>&lt;h1&gt;...&lt;h6&gt;</code>.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n22">ver requisito 2.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Nas páginas <a href="https://www.cm-barreiro.pt/viver/ambiente-planeamento-gestao-territorial-e-equipamentos/planeamento-mobilidade-informacao-geografica-gestao-e-regeneracao-urbana/urbanismo/processo-desmaterializacao/">Processo Desmaterialização</a>, <a href="https://www.cm-barreiro.pt/viver/intervencao-social-e-habitacao/servico-de-atendimento-e-acompanhamento-social/">Serviço de Atendimento e Acompanhamento Social</a>, <a href="https://www.cm-barreiro.pt/eventos/forum-barreiro-night-run-fbnr-2025/">NOVA DATA | Forum Barreiro Night Run 2025</a> e <a href="https://www.cm-barreiro.pt/conhecer/agenda-de-eventos/51-anos-do-25-de-abril/">51 anos do 25 de Abril</a> existem cabeçalhos  <code>h2</code> que estão em branco.</p>
+<p><img src="https://github.com/user-attachments/assets/975a5d1e-b20d-411d-a4d0-f343825302de" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Cabeçalho <code>h2</code> vazio na página de Serviço de Atendimento e Acompanhamento Social</em></p>
+<p>Recomendamos reverem as páginas para garantir que não existem cabeçalhos estruturados no HTML e que estão  em branco.</p>
+</div>
+              </li>
+            
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Existem títulos que não estão estruturados como cabeçalhos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Existe uma marcação hierarquizada de títulos e subtítulos na página <code>&lt;h1&gt;...&lt;h6&gt;</code>.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n22">ver requisito 2.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Os utilizadores de leitores de ecrã apenas conseguem perceber as secções “Links Úteis” e “Contactos”, no rodapé do site, devido à diferença no tamanho da letra desses elementos.</p>
+<p><img src="https://github.com/user-attachments/assets/825848c3-2315-42d8-baad-9d56e6965154" alt="image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figure 1 - Secções &quot;Links Úteis&quot; e &quot;Contactos&quot; presentes no rodapé, sem marcação com elementos cabeçalho</em></p>
+<p>Com efeito, estes elementos não possuem nenhuma indicação semântica que permita transmitir aos leitores de ecrã que os mesmos marcam o início de secção, não sendo portanto possível aos utilizadores destas tecnologias a navegação entre estas secções de forma rápida.<br>Pelo exposto, recomendamos que os textos “Links Úteis” e “Contactos”, presentes no rodapé do site, sejam colocados em elementos de cabeçalho nível 2 (<code>&lt;h2&gt;</code>), de forma a possibilitar a sua descoberta através de teclas rápidas de navegação dos leitores de ecrã, permitindo assim uma navegação mais rápida entre estas secções.<br>Existem outras páginas que contêm textos de início de secção que não estão marcados como cabeçalhos. Eis algumas delas:<br><a href="https://www.cm-barreiro.pt/municipio/camara-municipal-do-barreiro/executivo-camarario/">Executivo Camarario</a> - Contém textos com letra maior ou em negrito que não estão marcados como cabeçalhos (<a href="https://github.com/user-attachments/assets/7aecb698-26d4-420f-b773-3bd7993fcfde">figura 2</a>).<br><a href="https://www.cm-barreiro.pt/municipio/camara-municipal-do-barreiro/competencias-e-estrutura-organica/">Competências e Estrutura Orgânica</a> – Contém acordeons cujos títulos correspondem a secções, mas não estão marcados como cabeçalhos (<a href="https://github.com/user-attachments/assets/6342342b-8725-4a1e-8f54-ce62dbb278a5">figura 3</a>).</p>
+<p><img src="https://github.com/user-attachments/assets/7aecb698-26d4-420f-b773-3bd7993fcfde" alt="image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 2 - Página &quot;Executivo camarário&quot; com elementos com letra maior ou a negrito sem marcação com elementos cabeçalho</em></p>
+<p><img src="https://github.com/user-attachments/assets/6342342b-8725-4a1e-8f54-ce62dbb278a5" alt="image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 3 - Exemplo de um dos acordeons da página &quot;Competências e Estrutura Orgânica&quot; cujo título não está marcado como cabeçalho</em></p>
+<p>No caso da página <a href="https://www.cm-barreiro.pt/municipio/camara-municipal-do-barreiro/executivo-camarario/">Executivo Camarario</a>, recomendamos que os textos correspondentes aos cargos do executivo (presidente e os vários vereadores) sejam marcados com elementos cabeçalho de nível 2 (<code>&lt;h2&gt;</code>), e os textos &quot;Atendimento&quot; e &quot;Morada&quot; de cada cargo sejam marcados com elementos de cabeçalho de nível 3 (<code>&lt;h3&gt;</code>).<br>No caso da página <a href="https://www.cm-barreiro.pt/municipio/camara-municipal-do-barreiro/competencias-e-estrutura-organica/">Competências e Estrutura Orgânica</a>, os títulos dos acordeons devem ser marcados com elementos cabeçalho de nível 2 (<code>&lt;h2&gt;</code>).</p>
+</div>
+              </li>
+            
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Texto de cabeçalho incorretamente definido</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Existe uma marcação hierarquizada de títulos e subtítulos na página <code>&lt;h1&gt;...&lt;h6&gt;</code>.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n22">ver requisito 2.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Verificámos que na página <a href="https://www.cm-barreiro.pt/participar/apoio-ao-cidadao/livro-de-reclamacoes-electronico-e-resolucao-alternativa-de-litigios/">Livro de Reclamações Electrónico e Resolução Alternativa de Litígios</a> Existe um cabeçalho cujo texto não se encontra corretamente definido.</p>
+<p><img src="https://github.com/user-attachments/assets/f47e13f5-0c2c-4839-9ff3-aaddf6a5f08f" alt="image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 1 - Texto de cabeçalho incorretamente definido</em></p>
+<p>Como se pode observar na figura, o texto que foi atribuído ao cabeçalho de nível 2 corresponde a um texto de um parágrafo e não ao de um título.<br>Recomendamos a alteração do texto atribuído ao cabeçalho de nível 2 para “Canal de Denúncias”, e a colocação do texto antes atribuído ao <code>&lt;h2&gt;</code> num elemento <code>&lt;p&gt;</code> abaixo desse <code>&lt;h2&gt;</code>. Devem procurar todos os cabeçalhos cujos textos não representem títulos ou subtítulos e corrigi-los à semelhança do exemplo aqui indicado.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Existem campos sem etiqueta</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n41">ver requisito 4.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p>O campo &#39;Inserir termo&#39; da página <a href="https://www.cm-barreiro.pt/conhecer/cultura-e-juventude/juventude/conselho-municipal-de-juventude/">Conselho Municipal de Juventude</a> não possui etiqueta associada ao campo, e por consequência, também não possui uma etiqueta visível junto ao campo.</p>
+<p><img src="https://github.com/user-attachments/assets/a0131388-ef70-405f-97ed-5bab5e7852fb" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>O campo &#39;Inserir termo&#39; não possui etiqueta associada e que seja visível junto ao campo</em></p>
+<p>Recomendamos reverem todo os campos de preenchimento do website para garantir que tenham uma etiqueta associada e que esteja visível junto ao seu respetivo campo. Para isso, é necessário que:</p>
+<ul>
+<li>A  etiqueta do campo deve ser estruturada como um elemento <label> e deve estar associada ao campo.</li>
+<li>Para associar ao campo, o <em>for</em> da legenda e o <em>id</em> do campo de input devem ser iguais.</li>
+</ul>
+<p>Um exemplo de estrutura seria:</p>
+<pre><code>&lt;label for=&quot;firstname&quot;&gt;Primeiro nome:&lt;/label&gt;
+&lt;input type=&quot;text&quot; name=&quot;first&quot; id=&quot;firstname&quot;&gt;
+</code></pre>
+<p>ou</p>
+<pre><code>&lt;label&gt;
+    Primeiro nome:
+    &lt;input type=&quot;text&quot; name=&quot;firstname&quot;&gt;
+&lt;/label&gt;
+</code></pre>
+<p>Identificámos as seguintes páginas com o mesmo problema:</p>
+<ul>
+<li><a href="https://www.cm-barreiro.pt/conhecer/cultura-e-juventude/juventude/conselho-municipal-de-juventude/">https://www.cm-barreiro.pt/conhecer/cultura-e-juventude/juventude/conselho-municipal-de-juventude/</a></li>
+<li><a href="https://www.cm-barreiro.pt/participar/orcamento-participativo/documentos/">https://www.cm-barreiro.pt/participar/orcamento-participativo/documentos/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/1o-ciclo/cidadania-e-construcao-civica/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/1o-ciclo/cidadania-e-construcao-civica/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/1o-ciclo/educacao-ambiental/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/1o-ciclo/educacao-ambiental/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/1o-ciclo/educacao-para-as-artes/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/1o-ciclo/educacao-para-as-artes/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/1o-ciclo/literatura-media-e-jornalismo/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/1o-ciclo/literatura-media-e-jornalismo/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/1o-ciclo/patrimonio-historico-e-cultural/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/1o-ciclo/patrimonio-historico-e-cultural/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/2o-ciclo/cidadania-e-construcao-civica/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/2o-ciclo/cidadania-e-construcao-civica/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/2o-ciclo/educacao-ambiental/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/2o-ciclo/educacao-ambiental/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/2o-ciclo/literatura-media-e-jornalismo/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/2o-ciclo/literatura-media-e-jornalismo/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/2o-ciclo/patrimonio-historico-e-cultural/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/2o-ciclo/patrimonio-historico-e-cultural/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/3o-ciclo/cidadania-e-construcao-civica/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/3o-ciclo/cidadania-e-construcao-civica/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/3o-ciclo/educacao-ambiental/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/3o-ciclo/educacao-ambiental/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/3o-ciclo/literatura-media-e-jornalismo/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/3o-ciclo/literatura-media-e-jornalismo/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/3o-ciclo/patrimonio-historico-e-cultural/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/3o-ciclo/patrimonio-historico-e-cultural/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/pais-docentes-e-nao-docentes/cidadania-e-construcao-civica-pais-docentes-e-nao-docentes/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/pais-docentes-e-nao-docentes/cidadania-e-construcao-civica-pais-docentes-e-nao-docentes/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/pre-escolar/cidadania-e-construcao-civica/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/pre-escolar/cidadania-e-construcao-civica/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/pre-escolar/educacao-ambiental/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/pre-escolar/educacao-ambiental/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/pre-escolar/educacao-para-as-artes/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/pre-escolar/educacao-para-as-artes/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/secundario/cidadania-e-construcao-civica/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/secundario/cidadania-e-construcao-civica/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/secundario/educacao-ambiental/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/secundario/educacao-ambiental/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/secundario/literatura-media-e-jornalismo/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/secundario/literatura-media-e-jornalismo/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/secundario/patrimonio-historico-e-cultural/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/secundario/patrimonio-historico-e-cultural/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/superior/cidadania-e-construcao-civica-superior/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/superior/cidadania-e-construcao-civica-superior/</a></li>
+<li><a href="https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/superior/patrimonio-historico-e-cultural-superior/">https://www.cm-barreiro.pt/viver/educacao-e-gestao-escolar/educacao/recursos-e-projetos-educativos/servico-educativo-municipal/superior/patrimonio-historico-e-cultural-superior/</a></li>
+</ul>
+</div>
+              </li>
+            
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Atributos de campos de formulário de uso dispensável</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n41">ver requisito 4.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Existem atributos de campos de formulário cujo uso é dispensável.</p>
+<p><img src="https://github.com/user-attachments/assets/75aa6a39-8be6-4df4-981f-31cdbe775769" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 1 - Campo <code>&lt;input</code>&gt;` de pesquisa com atributos placeholder e aria-label que  tem uma etiqueta associada programaticamente</em></p>
+<p>Como se pode observar na figura, o formulário de pesquisa contém um elemento <code>&lt;input&gt;</code> com os atributos placeholder e aria-label, ambos com o mesmo valor: &quot;Introduza termo de procura&quot;.<br>O atributo placeholder não é recomendável, uma vez que o seu conteúdo desaparece da interface assim que se começa a escrever no campo, o que pode ser prejudicial para utilizadores com défice de memória.<br>O texto presente no atributo aria-label não é visível no ecrã, mas pode ser útil para utilizadores de tecnologias de apoio, ao reforçar a informação apresentada no placeholder.<br>No entanto, constatámos que este campo <code>&lt;input&gt;</code> já possui uma etiqueta programaticamente associada (elemento <code>&lt;label&gt;</code>) com o texto &quot;Procurar&quot;. Neste contexto, os atributos placeholder e aria-label tornam-se redundantes.</p>
+<p>Dado que o elemento <code>&lt;label&gt;</code> está corretamente associado ao campo, consideramos que o respetivo texto deve ser utilizado como nome acessível. Recomenda-se, por conseguinte, a remoção dos atributos placeholder e aria-label do campo <code>&lt;input&gt;</code>.</p>
+</div>
+              </li>
+            
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Campos sem etiquetas</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n41">ver requisito 4.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Os campos “Tipo de conteúdo”, “Escolha o ano” e “Escolha o mês” presentes no formulário de pesquisa não têm etiquetas associadas programaticamente.</p>
+<p><img src="https://github.com/user-attachments/assets/fb19ea89-7f81-491a-b720-30920c858261" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Figure 1 - campos do formulário de pesquisa sem etiquetas associadas</em></p>
+<p>O texto “Tipo de Conteúdo” presente no elemento <code>&lt;div&gt;</code> próximo ao campo com essa função é apresentado visualmente e aos leitores de ecrã, mas não está associado programaticamente ao campo, o mesmo se passando com o texto “Filtros”.</p>
+<p>Segue abaixo um exemplo alternativo de correção, em que se associa programaticamente uma legenda ao campo de pesquisa e se remove o atributo aria-label do campo “Tipo de Conteúdo” considerado para ilustração:</p>
+<p>Exemplo:</p>
+<pre><code>&lt;label for=&quot;search-filter-categories&quot;&gt;Tipo de Conteúdo&lt;/label&gt;
+&lt;select id=&quot;search-filter-categories&quot; class=&quot;search-001__form-select-cat Body_2PrimaryNeutralLeft&quot; name=&quot;post_type&quot; form=&quot;searchform&quot;&gt;
+&lt;option value=&quot;&quot; selected=&quot;&quot;&gt;Selecionar&lt;/option&gt;
+&lt;option value=&quot;eventos&quot;&gt;Eventos&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<p>Recomendamos que sejam revistos todos os formulários e sejam adicionadas legendas utilizando elementos <code>&lt;label&gt;</code>, associando-as aos campos respetivos, de acordo com os exemplos referidos.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-4.2">Requisito 4.2 - É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Existe um campo que não está estruturado como obrigatório</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n42">ver requisito 4.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Na página <a href="https://www.cm-barreiro.pt/viver/desenvolvimento-economico/gabinete-de-desenvolvimento-economico/">Gabinete de Desenvolvimento Económico</a> existe um formulário cujo campo &#39;Privacidade&#39; que não está programaticamente estruturado como obrigatório. </p>
+<p><img src="https://github.com/user-attachments/assets/5c9204c3-be99-40de-b850-f42455c462d7" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Campo de privacidade não está estruturado como obrigatório</em></p>
+<p>Para que o campo seja identificado como obrigatório, é possível estruturar de duas formas:</p>
+<ul>
+<li>Se utilizar o atributo de HTML5 required, ou seja, <em><strong>&lt;input .... required&gt;</strong></em> ou</li>
+<li>Se utilizar o atributo aria-required, ou seja, <em><strong>&lt;input ... aria-required=&quot;true&quot;&gt;,</strong></em></li>
+</ul>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-5.3">Requisito 5.3 - As imagens-link têm um equivalente alternativo correto</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Imagens link sem texto alternativo</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>As imagens-link têm um equivalente alternativo correto.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n53">ver requisito 5.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p>As imagens link de redes sociais e partilha de conteúdo, presentes em cada notícia do sítio web, não possuem texto alternativo.</p>
+<p><img src="https://github.com/user-attachments/assets/b9c943f5-5dc9-4346-be6c-647ed1dbc00e" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Figura 1 - Notícia <a href="https://www.cm-barreiro.pt/fraca-qualidade-do-ar-registada-a-30-de-junho-2025/">Fraca qualidade do ar registada a 30 de junho 2025</a> links de redes sociais facebook, twitter, whatsapp e email sem descrições textuais alternativas</em></p>
+<p>Recomendamos a inserção de texto alternativo em todas as imagens link presentes no site. Neste caso, um exemplo de correção para a imagem link associada ao facebook pode passar pela inserção do atributo aria-label ao elemento <code>&lt;i&gt;</code>, da seguinte forma:<br><code>&lt;i aria-label = &quot;Facebook&quot; class=&quot;fab fa-facebook-f&quot;&gt;&lt;/i&gt;</code></p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-6.1">Requisito 6.1 - No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Existem textos com contraste abaixo do recomendado no estado hover</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 6.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n61">ver requisito 6.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Quando passamos o rato nas opções do menu principal a cor laranja #F15924 apresentada no <code>:hover</code> possui contraste abaixo do recomendado (3,4:1)</p>
+<p><img src="https://github.com/user-attachments/assets/217ed1f6-9f9e-40d1-b7c9-ad286af63884" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Opções do menu estão com contraste abaixo do recomendado no estado :hover</em></p>
+<p>Isso acontece em outros locais, como por exemplo, nos breadcrumbs, título das notícias da homepage, e botões interativos</p>
+<p><img src="https://github.com/user-attachments/assets/9164c83d-7467-42a0-98f1-a2a7a77ec75b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Texto do breadcrumb possui contraste abaixo do recomendado no estado :hover</em></p>
+<p><img src="https://github.com/user-attachments/assets/46ce1a04-6fff-4a3b-bdec-c308e422716c" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Título das notícias possui contraste abaixo do recomendado no estado :hover</em></p>
+<p>Recomendamos rever de modo geral os elementos interativos do website para garantir que o texto tenha contraste com a cor de fundo também nos diferentes estados (<code>:hover</code>, <code>:focus</code>)</p>
+</div>
+              </li>
+            
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>O texto não tem contraste suficiente</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 6.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n61">ver requisito 6.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Na página de <a href="https://www.cm-barreiro.pt/municipio/protecao-civil/">Proteção Civil </a> existem textos com pouco contraste.</p>
+<p><img src="https://github.com/user-attachments/assets/009e543b-9fb5-475b-8f7b-1fc39af14c95" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Bloco de texto com contraste abaixo do recomendado (3,13:1)</em></p>
+<p>Na página <a href="https://www.cm-barreiro.pt/participar/hastas-publicas/em-vigor/">Em vigor</a> os textos também estão com pouco contraste</p>
+<p><img src="https://github.com/user-attachments/assets/5f080c83-7a85-423c-a8fa-4d5c100063da" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Bloco de texto com contraste abaixo do recomendado (3,4:1)</em></p>
+<p>Recomendamos rever de modo geral o website principalmente os pares de cores #8A8A8A com #F4F4F4, #838383 com #F4F4F4  #8A8A8A e #F4F4F4 com fundo branco #FFFFFF para garantir que todos os blocos de texto tenham contraste, de no mínimo, 4:1 com a cor de fundo.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>vídeos com mensagens eminentemente visuais sem audiodescrição ou transcrição descritiva</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 7.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>O vídeo ou áudio deve conter preferencialmente legendas fechadas sincronizadas.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n72">ver requisito 7.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p>A página <a href="https://www.cm-barreiro.pt/viver/desporto-e-associativismo/desporto/piscinas-municipais/">Piscinas Municipais</a> contém um vídeo com mensagens eminentemente visuais que não possui uma audiodescrição ou transcrição descritiva.<br>As legendas e transcrição existentes são automáticas e não contêm uma descrição das cenas visuais que ocorrem no vídeo.</p>
+<p><img src="https://github.com/user-attachments/assets/c477ff7e-bd40-4c25-b552-8689af8c1a63" alt="" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 1 - transcrição do vídeo &quot;Inscrições abertas para as Piscinas Municipais&quot;</em></p>
+<p>Como se pode observar na figura, a transcrição do vídeo apenas contém expressões como “Music” e “Applause” que em nada contribuem para a descrição das mensagens visuais veiculadas.<br>Recomendamos a utilização de legendas e transcrições descritivas em todos os vídeos com mensagens eminentemente visuais presentes no website, de forma a garantir que os utilizadores conseguem compreender o conteúdo desses vídeos. Para tal, podem ser substituídas as legendas já existentes por uma versão que contenha a descrição textual das cenas visuais, sendo que essa versão das legendas pode também substituir a transcrição existente.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-8.2">Requisito 8.2 - Quando se retira a CSS, a informação aparece numa ordem lógica</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>R 8.2 - 10 Aspetos- Existem conteúdos que estão visíveis apenas para tecnologias de apoio</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando se retira a CSS, a informação aparece numa ordem lógica.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n82">ver requisito 8.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Ao navegar com leitor de ecrã pelas opções no topo da página, poderão ser identificados dois elementos distintos: a seleção de idioma e um link para o Tradutor do Google. Visualmente, apenas a seleção de idioma está disponível. A opção do tradutor encontra-se fora de contexto e está acessível unicamente através da navegação por leitor de ecrã.</p>
+<p><img src="https://github.com/user-attachments/assets/d556c98a-8976-45f9-a9f9-ed1486fe86a1" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Leitor de ecrã identifica opção de seleção de idiomas</em></p>
+<p><img src="https://github.com/user-attachments/assets/f936ad41-5dfd-4973-a7b7-2acf2f38d0b2" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Leitor de ecrã identifica o tradutor do Google</em></p>
+<p><img src="https://github.com/user-attachments/assets/45dce39c-c557-4c1a-b47b-ad2251e44aaa" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Ao desligar CSS é possível ver que estruturalmente existe um link tradutor do Google e que está visível para o leitor de ecrã</em></p>
+<p>Quando se retira o CSS é possível identificar, no topo de todas as páginas do site, um link (cujo texto é “Accessibility by WAH”) que é escondido visualmente pelo CSS e é visível para as tecnologias de apoio.</p>
+<p><img src="https://github.com/user-attachments/assets/b2b22ebd-0a5f-4710-b3c0-812ec50bb5b9" alt="" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 1 - Link escondido visualmente pelo CSS mas visível para as tecnologias de apoio</em></p>
+<p>O carrossel que apresenta os destaques, presente na <a href="https://www.cm-barreiro.pt/">página inicial</a>, mostra visualmente um item de cada vez. No entanto, os utilizadores de leitores de ecrã conseguem visualizar todos os itens do carrossel.</p>
+<p><img src="https://github.com/user-attachments/assets/0299a3f9-197b-4557-850c-56f040013197" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 2 - Carrossel com apresentação de destaques apresenta todos os itens aos utilizadores de leitores de ecrã</em></p>
+<p>Tal configuração, para além de provocar uma incoerência entre o que é mostrado visualmente e o que é mostrado aos leitores de ecrã, obriga a que os utilizadores destas tecnologias tenham de passar por mais informação antes de chegarem ao próximo componente da página, tornando a navegação menos eficiente.</p>
+<p>Nesta <a href="https://www.w3.org/WAI/ARIA/apg/patterns/carousel/">página com exemplos de carrosséis do W3C</a> encontram boas práticas para a construção de carrosséis acessíveis, que podem ser usadas na adaptação deste componente.</p>
+<p>Para garantir uma experiência de navegação mais acessível e consistente, recomendamos que seja feita uma revisão geral da estrutura do código HTML por forma a garantir coerência entre o conteúdo visual da página e a sua organização semântica, criando desta forma uma experiência de navegação mais clara e coerente para utilizadores de tecnologias de apoio.</p>
+<p>Recomendamos rever a estrutura HTML do website com o CSS desativado para garantir que o conteúdo quando desligado o CSS seja o mesmo apresentado na interface visualmente com o CSS ativo.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-8.3">Requisito 8.3 - Quando se retira a CSS, deve ser possível reconhecer a semântica dos diversos elementos</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>As legendas estão sendo utilizadas de forma inapropriada</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando se retira o CSS, deve ser possível reconhecer a semântica dos diversos elementos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n83">ver requisito 8.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Na página <a href="https://www.cm-barreiro.pt/viver/desenvolvimento-economico/gabinete-de-desenvolvimento-economico/">Gabinete de Desenvolvimento Económico</a>, os campos do formulário apresentam as seguintes legendas: &quot;Nome do/a Responsável&quot;, &quot;Nome da Empresa&quot; e &quot;Privacidade&quot;, que estão sendo apresentadas visualmente como etiquetas principais de cada campo.</p>
+<p>Esta estrutura está incorreta, uma vez que as legendas (utilizadas com o elemento <code>fieldset</code>) têm como objetivo agrupar campos em comum e nesse formulário existe uma legenda e fieldset para cada um desses campos. Além disso, as etiquetas <code>label</code> tem como objetivo indicar o que deve ser preenchido e é possível identificar que a label não está apropriada.</p>
+<p><img src="https://github.com/user-attachments/assets/8e5cdb29-ded6-4af7-9b6b-508ed629cb2d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Campos &#39;Nome do/a Responsável&#39;, &#39;Nome da Empresa&#39; e &#39;Privacidade&#39; estão sendo estruturados com o fieldset e legend. As labels &#39;Primeiro&#39;, &#39;Último&#39; e &#39;Empresa&#39; não estão nomeados apropriadamente</em></p>
+<p>Recomendações de ajustes nos campos do formulário:</p>
+<ul>
+<li><p>Campo &quot;Empresa&quot;: recomendamos a remoção das tags <code>legend</code> e <code>fieldset</code>. A etiqueta (<code>label</code>) deverá ser renomeada para &quot;Nome da Empresa (Obrigatório)&quot;</p>
+</li>
+<li><p>Campos &quot;Primeiro&quot; e &quot;Último&quot;: recomendamos manter as tags <code>fieldset</code> e <code>legend</code>, contudo, o indicativo de que é obrigatório deve ser inserido nas etiquetas (<code>label</code>) de cada campo. Assim, sugerimos renomear para: &quot;Primeiro nome (obrigatório)&quot; e &quot;Último nome (obrigatório)&quot;<br>Alternativamente, poderá ser considerada a remoção das tags <code>legend</code> e <code>fieldset</code>, unificando os dois campos num só, com a seguinte etiqueta: &quot;Nome do/a Responsável (Obrigatório)&quot;</p>
+</li>
+<li><p>Campo de &quot;Privacidade&quot;: recomendamos a remoção das tags <code>legend</code> e <code>fieldset</code>, mantendo a informação estruturada apenas como texto, com o seguinte conteúdo: &quot;Privacidade (Obrigatório)&quot;</p>
+</li>
+</ul>
+</div>
+              </li>
+            
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Uso de listas de forma inapropriada</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando se retira o CSS, deve ser possível reconhecer a semântica dos diversos elementos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n83">ver requisito 8.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p>A secção “Reuniões de Câmara | Últimos documentos” presente na <a href="https://www.cm-barreiro.pt/">página inicial</a> contém oito documentos, que para efeitos visuais foram distribuídos em duas listas <code>&lt;ul&gt;</code>.</p>
+<p><img src="https://github.com/user-attachments/assets/6b0b0f71-9e6b-4909-bd8d-446b54b6a8e0" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 1 - Duas listas não ordenadas, cada uma contendo quatro documentos (para exemplificação apenas o primeiro item da primeira lista está expandido)</em></p>
+<p>Semanticamente, o que faz sentido é a agregação dos oito documentos numa única lista, até porque não parece haver nenhuma característica que seja diferente nos documentos de uma e de outra lista que legitime esta desagregação. O único ponto em que esta divisão se baseia parece ser a maior facilidade de disposição visual dos documentos no ecrã que esta estruturação possibilita.<br>No entanto, elementos estruturais não devem ser confundidos com elementos de estilo. Neste caso em particular, a existência destas duas listas faz com que não seja fornecido aos utilizadores de leitores de ecrã o número total de documentos (são anunciadas duas listas com quatro documentos, uma a seguir à outra), o que não possibilita uma navegação tão eficiente.<br>Pelo exposto, recomendamos a colocação de todos os documentos numa única lista e a definição de estilos CSS que permitam dispor os vários itens no ecrã de acordo com o pretendido, permitindo assim a separação entre a estrutura e o estilo.</p>
+</div>
+              </li>
+            
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Acordeons implementados com atributos inadequados</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando se retira o CSS, deve ser possível reconhecer a semântica dos diversos elementos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n83">ver requisito 8.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Os acordeons encaixados presentes na página <a href="https://www.cm-barreiro.pt/municipio/camara-municipal-do-barreiro/reunioes-de-camara/reunioes/">Reuniões</a> foram desenvolvidos recorrendo a alguns atributos inadequados, o que prejudica a acessibilidade destes acordeons por parte de quem utiliza o teclado e/ou tecnologias de apoio.</p>
+<p><img src="https://github.com/user-attachments/assets/33797b11-8572-48ba-8835-be8c86925180" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 1 - Exemplo de acordeons encaixados utilizando atributos inadequados na sua construção</em></p>
+<p>Segue a lista de atributos inadequados, apresentados na figura:</p>
+<ul>
+<li>Role = “tab” nos itens de lista (<code>&lt;li</code>&gt;)</li>
+<li>Role = “tablist” e aria-multiselectable = “true” na lista de itens externa (<code>&lt;ul&gt;</code>)</li>
+<li>Role = “group” nas listas de itens internas (<code>&lt;ul&gt;</code>)</li>
+<li>Role = “menuitem” nas ligações apresentadas nos painéis de acordeon mais internos.<br>O atributo aria-multiselectable = “true” é inadequado em acordeons, já que não estamos perante listas de múltipla seleção.<br>O atributo role = “menuitem” também é inadequado, já que não estamos perante itens de menu.<br>O acordeon foi construído com uma estrutura personalizada, utilizando role = “tablist” e role = “tab”. Por omissão, os elementos <code>&lt;li&gt;</code> não são focáveis, apesar de o role = “tab” lhes atribuir a semântica de separadores. Tal significa que não é possível navegar pelos vários itens dos painéis dos acordeons utilizando o teclado (tab e shift+tab).<br>Para além disso, esta combinação de atributos causa problemas de acessibilidade difíceis de depurar.<br>Com efeito, para além de não ser possível focar os vários itens dos painéis via teclado, o leitor de ecrã utilizado no teste (NVDA) anuncia toda a cadeia de itens expandidos até ao item atual.<br>Por exemplo: se expandirmos o ano de 2025 e navegarmos para a lista de reuniões, este leitor de ecrã anuncia a seguinte informação:<br>“Separador expandido separador recolhido item de menu 17 – Reunião de Câmara Ordinária Publica | 02 de julho de 2025”<br>“Separador expandido separador recolhido item de menu 16 – Reunião de Câmara Ordinária Publica | 18 de junho de 2025”<br>Etc.<br>Quando devia anunciar apenas<br>“17 – Reunião de Câmara Ordinária Publica | 02 de julho de 2025”<br>“16 – Reunião de Câmara Ordinária Publica | 18 de junho de 2025”<br>Etc.<br>Ao expandir o item “17 – Reunião de Câmara Ordinária Publica | 02 de julho de 2025” e navegar no painel interno, o anúncio é o seguinte:<br>““Separador expandido separador expandido separador item de menu Edital nº 314/2025 – Edital de Publicitação da Reunião Ordinária Publica de 02/07/2025...”<br>Como deverá ser fácil de compreender, esta verbosidade no anúncio de cada elemento dos painéis interiores contribui para uma navegação menos eficiente por parte de quem utiliza leitores de ecrã.<br>Recomendamos a restruturação do acordeon utilizando uma estrutura mais simples, com o número mínimo de atributos necessários ao bom funcionamento de um acordeon.<br>Essa estrutura passa pela utilização de elementos <code>&lt;div&gt;</code> para os painéis dos acordeons, e de botões para os itens cujas ações provocam a visualização e ocultação dos painéis.<br>No que diz respeito aos atributos associados aos acordeons, recomendamos a utilização dos seguintes, nos elementos <code>&lt;button&gt;</code>:</li>
+<li>aria-expanded, com o valor “true” caso o respetivo painel esteja expandido, “false” caso contrário;</li>
+<li>aria-controls, com o valor &quot;ID-painel&quot;, que referencia o id do painel do acordeon que o botão controla.<br>Por último, salientamos que os textos descritivos dos botões são considerados títulos de secção, pelo que os botões devem ser colocados em elementos cabeçalho.<br>Neste caso, os botões que controlam os acordeons exteriores devem ser colocados em elementos <code>&lt;h2&gt;</code>, e os botões que controlam os acordeons interiores devem ser colocados em elementos <code>&lt;h3&gt;</code>.<br>Para obtenção de informação mais detalhada acerca da construção correta de acordeons, recomendamos a consulta de <a href="https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/">um exemplo de acordeon na página do W3C</a>.<br>Recomendamos ainda a visualização da página de <a href="https://codepen.io/vic-123/pen/myyNzgw">exemplo de acordion aninhado</a>, que adapta parte da estrutura do acordeon em apreço, com todas as recomendações indicadas acima, podendo por isso constituir um material de apoio na restruturação do componente.</li>
+</ul>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-9.1">Requisito 9.1 - Quando a caixa de diálogo é aberta, o foco (cursor do Browser) move-se para um elemento dentro da caixa de diálogo</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>O foco não é direcionado para dentro da modal</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando a caixa de diálogo é aberta, o foco (cursor do Browser) move-se para um elemento dentro da caixa de diálogo<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n91">ver requisito 9.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Quando uma modal é aberta, o foco do teclado deve ser automaticamente direcionado para dentro dela. Isto garante que os utilizadores que navegam com o teclado, incluindo aqueles que recorrem a tecnologias de apoio, possam interagir facilmente com o conteúdo apresentado e percebam que uma nova interação está disponível.</p>
+<p>A secção “Barreiro TV” da <a href="https://www.cm-barreiro.pt/">página inicial</a>	 contém links para vídeos. Cada um desses links provoca a abertura de uma modal ao ser acedido. No entanto, o foco não é direcionado para o conteúdo de nenhuma modal.</p>
+<p><img src="https://github.com/user-attachments/assets/5c6e2ce6-6c70-489f-9411-ce326f0ae150" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 1 - Ao abrir um vídeo com o leitor de ecrã o foco não é direcionado para dentro da modal</em></p>
+<p>Recomendamos ajustar o foco para que, ao abrir a modal, o cursor seja automaticamente direcionado para o primeiro campo da modal. Isso deve ser revisto em todos os vídeos presentes na secção “Barreiro TV” da página inicial do website.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-9.2">Requisito 9.2 - Quando uma caixa de diálogo está aberta, a navegação com teclado (Browser ou Tecnologia de apoio) tem de ficar circunscrita aos elementos que compõem a caixa de diálogo</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>O foco não está limitado à modal do player de vídeo</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando uma caixa de diálogo está aberta, a navegação com teclado (Browser ou Tecnologia de apoio) tem de ficar circunscrita aos elementos que compõem a caixa de diálogo<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n92">ver requisito 9.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Manter o foco do teclado dentro da caixa de diálogo garante que os utilizadores possam interagir com o seu conteúdo sem distrações de outros elementos na página. Este controlo do foco facilita a navegação, ajudando os utilizadores a compreenderem a sua posição na interface.<br>Quando um vídeo da secção “Barreiro TV” da <a href="https://www.cm-barreiro.pt/">página inicial</a> é acedido, é possível percorrer o restante conteúdo que rodeia a modal com o player.</p>
+<p><img src="https://github.com/user-attachments/assets/592e94ac-0c77-4a8f-8985-8a751d42f3e3" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 1 - Leitor de ecrã lê o restante do conteúdo da página com a modal do player de vídeo aberta</em></p>
+<p>Recomendamos que ao utilizar o teclado ou leitor de ecrã, o foco seja limitado apenas para o conteúdo da modal, nesse caso o player do vídeo. Enquanto a modal estiver aberta, a navegação por outras opções do website não deve ser possível.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-9.3">Requisito 9.3 - A caixa de diálogo tem de ter um mecanismo que permita sair ou fechar a caixa, quer através de teclado quer através de um dispositivo apontador</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Botões de fecho das modais não estão acessíveis com leitor de ecrã e teclado</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>A caixa de diálogo tem de ter um mecanismo que permita sair ou fechar a caixa, quer através de teclado quer através de um dispositivo apontador<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n93">ver requisito 9.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p>As modais devem apresentar um botão de fechar claramente visível e acessível através do teclado. Além disso, podem permitir que os utilizadores as fechem pressionando a tecla &#39;Esc&#39;. Essas opções garantem que utilizadores de teclado e leitores de ecrã consigam interagir com a modal de forma eficaz.</p>
+<p>Os botões de fecho de todas as modais dos vídeos da secção “Barreiro TV” da página inicial são controlos personalizados, implementados com o elemento <code>div</code>, em vez de controlos nativos do HTML, como o elemento <code>button</code> (<a href="https://github.com/user-attachments/assets/850efe0c-92ee-4d1d-ae9a-3530a6b06c3b">figura 1</a>)</p>
+<p><img src="https://github.com/user-attachments/assets/850efe0c-92ee-4d1d-ae9a-3530a6b06c3b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 1 - Botão de fecho de uma modal implementado com um elemento <code>div</code></em></p>
+<p>No que respeita à acessibilidade total de um botão, este tipo de personalização exige muitos mais ajustes do que um controlo nativo, que já é acessível por omissão.</p>
+<p>Neste exemplo, os botões de fecho das modais não recebem o foco via teclado (tab e shift+tab) com o leitor de ecrã ativado. Para além disso, também não é possível fechá-las utilizando a tecla ‘Esc’.</p>
+<p>Recomendamos que todas as modais incluam um botão “Fechar”, devidamente rotulado e claramente visível. Preferencialmente, a modal também deve fechar pela  tecla “ESC”.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-9.4">Requisito 9.4 - Quando a caixa de diálogo fecha, o foco (cursor do Browser) deve voltar ao elemento interativo que a invocou</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>O foco é perdido quando a janela modal é fechada</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.4</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando a caixa de diálogo fecha, o foco (cursor do Browser) deve voltar ao elemento interativo que a invocou<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n94">ver requisito 9.4 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Garantir que o foco retorne ao elemento que acionou a modal é uma prática que beneficia especialmente pessoas que utilizam navegação por teclado ou leitores de ecrã, ajudando-as a manter-se orientadas dentro da interface.</p>
+<p>Ao fechar uma modal, se o foco é perdido ou deslocado para um local inesperado, os utilizadores precisarão percorrer novamente a interface até chegar no local desejado para continuar a interação desejada.</p>
+<p>Os botões de fecho de todas as modais dos vídeos da secção “Barreiro TV” da <a href="https://www.cm-barreiro.pt/">página inicial</a> não são focáveis via teclado (tab e shift+tab). Por seu turno, a tecla ‘esc’ apenas fecha a modal quando o leitor de ecrã está desativado, e nessa situação o foco volta para o elemento que invocou a modal. No entanto, estamos perante um comportamento inconsistente, cujo resultado nunca é de sucesso se o leitor de ecrã estiver ativado.</p>
+<p>Recomendamos a revisão do comportamento dos botões de fecho das modais indicadas acima, garantindo que, quando acionados via teclado, o foco é corretamente devolvido ao elemento que invocou a respetiva modal — independentemente de estar, ou não, a ser utilizado um leitor de ecrã. O mesmo comportamento consistente deve ser atribuído à tecla &#39;Esc&#39;.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-chk10-r-10.1">Requisito 10.1 - Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Não é possível extrair o texto de ficheiros PDF para outro processador de texto</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 10.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n101">ver requisito 10.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p>Foram encontrados ficheiros em formato PDF em que não é possível extrair os conteúdos.<br>Eis alguns documentos em que tal acontece:</p>
+<ul>
+<li>Os documentos presentes na página <a href="https://www.cm-barreiro.pt/municipio/assembleia-municipal/sessoes-de-assembleia/atas/">Atas</a>, por exemplo, o documento <a href="https://www.cm-barreiro.pt/wp-content/uploads/2025/01/Ata-no-06-2024-Sessao-Ordinaria-de-setembro-2024.pdf?x33193">Ata nº 006/2024</a></li>
+<li>Alguns documentos complexos presentes na página <a href="https://www.cm-barreiro.pt/municipio/recursos-humanos/mapa-de-pessoal/">Mapa de Pessoal</a>, por exemplo, o documento <a href="https://www.cm-barreiro.pt/wp-content/uploads/2023/12/Lista-Transicao-Informatica.pdf?x33193">Lista Nominativa de Transição das carreiras de Informática</a>. Este último documento contém uma tabela cuja estrutura se perde quando o texto é extraído.<br>Devem garantir que os ficheiros PDF são otimizados para que seja possível extrair a informação para um processador de texto. Desta forma, garante-se que o texto pode ser lido por leitores de ecrã na ordem correta. No caso de documentos que são fotocópias, contendo apenas imagens, é possível converter os documentos para texto através do <a href="https://www.adobe.com/pt/acrobat/how-to/ocr-software-convert-pdf-to-text.html">Reconhecimento Óptico de Caracteres (OCR) da Adobe</a>.</li>
+</ul>
+</div>
+              </li>
+            </ul></div>
+      </div>
+
+      
+      <div class="checklist-section">
+        <h3 id="checklist-conteudo">Checklist Conteúdo</h3>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        
+    <p><strong>Nível de conformidade:</strong></p>
+    <ul>
+      <li><strong>Checklist Conteúdo</strong>: 58.8% (10/17)
+        <ul>
+          <li>Requisitos avaliados: 17 (17 aplicáveis)</li>
+          <li>Requisitos OK: 10</li>
+          <li>Requisitos NOK: 7</li>
+          
+        </ul>
+      </li>
+    </ul>
+    
+        
+        <h4 class="requirement-title" id="req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Resumo do propósito do site na homepage não visível em todas as resoluções, sem fazer scroll</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>O sítio Web apresenta um resumo breve do seu propósito, visível sem fazer scroll.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n11">ver requisito 1.1 na lista Conteúdo</a></p>
+</blockquote>
+<p>Na Homepage deve existir uma breve descrição do propósito do website que demonstre que tarefas é possível realizar no mesmo. Esse propósito deve ser imediatamente visível na página, sem ser necessário fazer scroll, avançar no slideshow, entre outros.</p>
+<p>O resumo do propósito na Homepage da CM Barreiro não é visível em todas as resoluções, sem fazer scroll.</p>
+<p><img src="https://github.com/user-attachments/assets/41ed0111-78a4-4292-aa24-0f8f597dbea5" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Resolução mobile da homepage, em que é necessário fazer scroll para visualizar o propósito do sítio web</em></p>
+<p>Para garantir que a mensagem seja visível antes de fazer scroll, recomendamos que a mesma seja apresentada no topo da página. Tal alteração, no caso desta homepage que tem uma enorme densidade de informação, também irá favorecer os utilizadores de leitores de ecrã, que passarão a percecionar a mensagem no primeiro contacto com a página.</p>
+<p>Como referência de uma boa prática, é possível verificar no website <a href="https://www.acessibilidade.gov.pt/">acessibilidade.gov</a> que o seu propósito está escrito no topo da página.</p>
+<p><img src="https://github.com/user-attachments/assets/cfdc348e-0be0-473c-9f54-133d0ce9007b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Exemplo de propósito do website <a href="https://www.acessibilidade.gov.pt/">acessibilidade.gov</a></em></p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Não está explícito onde é possível localizar o glossário</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os termos mais complexos têm uma definição agregada.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n12">ver requisito 1.2 na lista Conteúdo</a></p>
+</blockquote>
+<p>Aproveitamos para salientar que o glossário, maioritariamente de siglas, colocado nas evidências, não se encontra referenciado num local visível ou comum do sítio web (por exemplo, no rodapé), pelo que os utilizadores não tomam conhecimento da sua existência.</p>
+<p>Verificámos também que existem termos e siglas que estão misturadas junto com termos complexos do glossário.</p>
+<p><img src="https://github.com/user-attachments/assets/005893d7-bacd-459c-a055-5d1fee271fdf" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>&quot;Aqui Barreiro&quot; está sendo apresentado no meio das siglas do glossário</em></p>
+<p>Pelo exposto, recomendamos a inserção de uma hiperligação para o glossário numa área visível ou comum do sítio web e separar as siglas e palavras incomuns no glossário de forma a facilitar a procura da informação.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-conteudo-r-2.1">Requisito 2.1 - O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>O corpo de texto tem um tamanho inferior ao recomendado (16 pixeis)</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n21">ver requisito 2.1 na lista Conteúdo</a></p>
+</blockquote>
+<p>Na página <a href="https://www.cm-barreiro.pt/participar/cartao-barreiro/">Cartão Barreiro</a> o tamanho dos textos está abaixo do recomendado (14 pixels). </p>
+<p><img src="https://github.com/user-attachments/assets/28478acb-7e51-49bc-8ed4-f0e495c45ddf" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Bloco de texto com tamanho de fonte abaixo do recomendado (14 pixels)</em></p>
+<p>A frase do propósito do website que está sendo apresentada na homepage é uma informação primária e não pode ter tamanho menor que 16 pixels.</p>
+<img src="https://github.com/user-attachments/assets/cd9c0f42-0ded-43c7-93ff-c8bf9e334991" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+<p><em>Texto da frase do propósito com tamanho abaixo do recomendado (14 pixels)</em></p>
+<p>Existem outros conteúdo na homepage que também não são considerados como secundários e estão com tamanho abaixo do recomendado, como as informações de reuniões da câmara e as opções do menu</p>
+<p><img src="https://github.com/user-attachments/assets/aa673270-a67c-4a82-b4a6-b5ae39c00015" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Elementos interativos sobre as reuniões da câmara possuem tamanho de fonte abaixo do recomendado (14 pixels)</em></p>
+<p><img src="https://github.com/user-attachments/assets/c0ec049d-15a9-4a07-b4f7-0ba15a926082" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Opções do menu com tamanho de fonte abaixo do recomendado</em></p>
+<p>Verificámos que esta situação está a ocorrer em praticamente todas as páginas do website. Apesar de existir uma ferramenta de ampliação disponível, é essencial que todos os blocos de texto e elementos visuais que transmitem informações consideradas como essenciais, por defeito, um tamanho de letra de 16 pixels.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-conteudo-r-2.2">Requisito 2.2 - A informação secundária (datas, autores) utiliza, no mínimo, um tamanho de letra de 10 pontos</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Existem conteúdos secundários com tamanho de fonte abaixo do recomendado</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>A informação secundária (datas, autores) utiliza, no mínimo, um tamanho de letra de 10 pontos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n22">ver requisito 2.2 na lista Conteúdo</a></p>
+</blockquote>
+<p>Existem textos secundários com tamanho de fonte abaixo do recomendado. Por exemplo, na página <a href="https://www.cm-barreiro.pt/participar/cartao-barreiro/">Cartão Barreiro</a> é possível verificar que a data de atualização possui tamanho de 12 pixels. Isso acontece de forma geral no website.</p>
+<p><img src="https://github.com/user-attachments/assets/1123b095-9ef2-43d8-8dae-f596957f0969" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Data de atualização com tamanho de texto abaixo do recomendado (12 pixels)</em></p>
+<p>Por esse motivo recomendamos que todo o seu conteúdo seja revisto para garantir que as informações secundárias tenham tamanho mínimo de 14 pixels.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-conteudo-r-2.3">Requisito 2.3 - Blocos e linhas de texto com largura não superior a 100 caracteres</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Existem blocos de texto com mais de 100 caracteres por linha</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Blocos e linhas de texto com largura não superior a 100 caracteres.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n23">ver requisito 2.3 na lista Conteúdo</a></p>
+</blockquote>
+<p>Na página <a href="https://www.cm-barreiro.pt/municipio/">Município</a> o número de caracteres no bloco de texto está acima do recomendado (119 caracteres)</p>
+<p><img src="https://github.com/user-attachments/assets/91fafe8d-99c5-4c15-bb63-0cb5923550d9" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Bloco de texto com 119 caracteres na página Município</em></p>
+<p>Isso acontece de forma geral no website e por esse motivo, recomendamos reverem todo o conteúdo para garantir que o número de caracteres dos blocos de texto seja de, no máximo, 100 caracteres.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Não existe um índice no topo de páginas longas</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os documentos longos têm um índice no topo com hiperligações internas para o mesmo.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n41">ver requisito 4.1 na lista Conteúdo</a></p>
+</blockquote>
+<p>Na página <a href="https://www.cm-barreiro.pt/municipio/camara-municipal-do-barreiro/executivo-camarario/">Executivo Camarário</a>, é possível verificar que o conteúdo apresentado ultrapassa a altura de três ecrãs. Para contornar esta situação, foi implementado um mecanismo de carregamento adicional no final da página (● ● ●), permitindo ao utilizador aceder a mais informação à medida que faz o scroll para baixo.</p>
+<p>No entanto, esta abordagem apresenta problemas:</p>
+<ul>
+<li>Os leitores de ecrã não identificam que existe conteúdo adicional a ser carregado, o que pode comprometer a navegação através de regiões específicas na páginas, como por exemplo, cabeçalhos.</li>
+<li>A dinâmica de carregamento torna difícil obter uma perceção global do conteúdo disponível, uma vez que o seu tamanho varia consoante a quantidade de informação carregada, o que não é imediatamente percetível para o utilizador. Para os leitores de ecrã é mais críticos pois compromete a leitura do conteúdo que ainda não está carregado.</li>
+</ul>
+<p>Recomendamos a revisão de todas as páginas do website com o objetivo de substituir o carregamento de conteúdo à medida que se faz scroll por uma navegação com um índice para cada secção interna. Esta abordagem permite que o conteúdo seja apresentado totalmente na página permitindo que os leitores de ecrã identifiquem todo o conteúdo disponível. Para isso, é necessário remover o menu lateral e substituir pelo índice (para mais informações analisarem <a href="https://github.com/unidade-acesso/report_002/issues/54">Outras violações - Existem duas navegações com a mesma informação</a>.</p>
+<p><strong>Nota:</strong> Esta recomendação aplica-se especificamente a páginas com conteúdo predominantemente textual, como o exemplo apresentado. No caso de páginas extensas compostas por componentes de interação — como a página de <a href="https://www.cm-barreiro.pt/contactos-uteis/">Contactos Úteis</a> — não é necessário incluir um índice, uma vez que estas são constituídas por cartões (cards) e elementos interativos. Nestes casos, recomenda-se remover o carregamento progressivo de conteúdo ao fazer scroll e apresentar todo o conteúdo na página.</p>
+</div>
+              </li>
+            </ul></div>
+        <h4 class="requirement-title" id="req-conteudo-r-5.2">Requisito 5.2 - Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos) (vertical e horizontal)</h4>
+      <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Existem elementos interativos com tamanho abaixo do recomendado (44 x 44 pixels)</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos), vertical e horizontal.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n52">ver requisito 5.2 na lista Conteúdo</a></p>
+</blockquote>
+<p>Os controles dos carroseis apresentados na homepage possuem tamanho abaixo do recomendado (15px de largura e 8px de altura). Embora os botões &quot;Voltar&quot; e &quot;Avançar&quot; cumpram esta recomendação, identificámos controlos adicionais — que permitem saltar entre os slides — com dimensões inferiores. Estes também devem respeitar o tamanho mínimo recomendado.</p>
+<p><img src="https://github.com/user-attachments/assets/d9cf9c87-1cea-4e76-8791-9ccb7cb2c208" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Controles do carrosel da homepage com tamanho abaixo do recomendado (15px de largura e 8px de altura)</em></p>
+<p>Recomendamos que revejam os controlos dos carrosseis do website para garantir que todos tenham, no mínimo, 48 por 48 píxeis.</p>
+<p><img src="https://github.com/user-attachments/assets/5bd7b245-8746-497f-8ea6-c25804678745" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Possível exemplo de como atribuir aos controles o tamanho mínimo recomendado</em></p>
+</div>
+              </li>
+            </ul></div>
+      </div>
+
+      
+      
+      
+      <div class="checklist-section">
+        <h3 id="outras-violacoes">Outras violações</h3>
+        <div class="requirement-content">
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        <p>Lista de evidências recolhidas:</p>
+    <ul class="evidence-list">
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Outras violações - Existem duas navegações com a mesma informação</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span></div>
+                <div class="issue-content"><p>O website da Câmara Municipal do Barreiro apresenta atualmente duas formas de navegação: um menu principal localizado no topo da página e um menu lateral com os mesmos itens de navegação.</p>
+<p>No entanto, não se recomenda a apresentação da mesma estrutura de navegação em mais do que um local na página. Esta duplicação pode gerar redundância, excesso de informação e confusão no utilizador, dificultando a identificação do menu principal.</p>
+<p>Na imagem abaixo, observa-se a existência simultânea dos dois menus (superior e lateral) e, adicionalmente, o conteúdo da página corresponde novamente a ligações para as mesmas páginas dos menus. Desta forma, são apresentadas três formas diferentes de aceder aos mesmos conteúdos.</p>
+<p><img src="https://github.com/user-attachments/assets/700e2d90-e498-4955-a756-f43d8f18fcb9" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"></p>
+<p>Recomendamos reverem a estrutura de navegação e nesse caso, removerem a navegação na lateral (pois também apresenta problemas de interação com o teclado e leitor de ecrã) do website e manter apenas o menu principal no topo. Abaixo partilhamos um  possível exemplo:</p>
+<p><img src="https://github.com/user-attachments/assets/d95c5bd3-4d33-431a-8327-027ed6515a9d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><em>Exemplo de como a página ficaria sem o menu lateral que está redundante</em></p>
+</div>
+              </li>
+            
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><strong>Outras violações - Idioma dos elementos interativos dos carrosséis diferente do idioma do site</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span></div>
+                <div class="issue-content"><p>Os textos dos elementos interativos que permitem navegar pelos slides do carrossel existente na secção &quot;Destaques&quot; <a href="https://www.cm-barreiro.pt/">página inicial</a> não estão em português.</p>
+<p><img src="https://github.com/user-attachments/assets/fd501280-22ed-4436-9f7f-18fc8909e499" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;"><br><em>Figura 1 - Carrossel presente na secção destaques, cujos botões de navegação entre slides estão em inglês</em></p>
+<p>Recomendamos a internacionalização dos textos dos componentes interativos de todos os carrosséis, de modo que o seu idioma corresponda ao idioma do sítio web.</p>
+</div>
+              </li>
+            </ul></div>
+      </div>
+    </section>
+
+
+
+         
+
+         <section id="etiquetas" class="mb-5 report-section">
+       <h2 id="req-etiquetas">Significado das etiquetas utilizadas</h2>
+      <ul>
+                                   <li><span class="label-tag label-ok"><span class="sr-only">etiqueta: </span>OK</span> - status OK</li>
+                                   <li><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span> - status OK, mas pode melhorar</li>
+                                   <li><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span> - status Not OK</li>
+                                   <li><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span> - status Não Aplicável</li>
+                                   <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk10 web</span> - checklist 10 Aspetos críticos de acessibilidade funcional</li>
+                                   <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span> - checklist Conteúdo</li>
+                                   <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span> - checklist Transação</li>
+                                   <li><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span> - permite construir o subcapítulo "Outras violações", o qual integra o capítulo "Avaliações manuais"</li>
+                                   <li><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span> - permite construir o capítulo "Declaração de acessibilidade e usabilidade"</li>
+                                   <li><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span> - permite construir o capítulo "Avaliação automática"</li>
+                                   <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>testes usabilidade</span> - permite construir o capítulo "Testes de usabilidade"</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer class="mt-5 pt-4 border-top text-center text-muted">
+    <div class="container">
+      <p>© 2025 ARTE - Agência para a Reforma Tecnológica do Estado, I.P. Todos os Direitos Reservados.</p>
+      <p><em lang="en">GitReports v1.0</em> - relatório gerado automaticamente a partir dos <em lang="en">issues</em> do GitHub</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
