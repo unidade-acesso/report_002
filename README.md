@@ -1,7 +1,8 @@
 # Câmara Municipal do Barreiro
+- Data de criação: 03/06/2025
 - URL: https://www.cm-barreiro.pt
 - Proprietário: CM Barreiro
-- Candidatura a: Selo Bronze
+- Candidatura: Bronze
 
 ## Consulte aqui: [Relatório da Auditoria da CM Barreiro (Agosto 2025)](https://unidade-acesso.github.io/report_002/relatorio_report_002.html)
 
