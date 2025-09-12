@@ -4,7 +4,15 @@
 - Proprietário: CM Barreiro
 - Candidatura: Bronze
 
-## Consulte aqui: [Relatório da Auditoria da CM Barreiro (Agosto 2025)](https://unidade-acesso.github.io/report_002/relatorio_report_002.html)
 
-### Recursos de apoio ao relatório:
-- [Guia de utilização do relatório de auditorias](https://unidade-acesso.github.io/reports/guiao.html)
+## Relatório de Auditoria
+
+Consulte aqui a última atualização: [Relatório da Auditoria da CM Barreiro](relatorio_report_002.html)
+
+<details>
+  <summary>Histórico de atualizações</summary>
+  <ul aria-label="lista de relatórios já efetuados">
+    <li><a href="12092025_report_002.html">(12/09/2025). Relatório da CM Barreiro</li>
+  </ul>
+</details>
+
